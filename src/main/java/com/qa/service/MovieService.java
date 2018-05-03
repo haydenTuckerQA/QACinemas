@@ -12,11 +12,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import com.qa.domain.Movie;
+import com.qa.service.IMovie;
 import com.qa.utility.JSONUtil;
 
 @Model
 @Default
-public class MovieService {
+public class MovieService implements IMovie{
 
 	@Inject
 	private JSONUtil util;
@@ -74,7 +75,7 @@ public class MovieService {
 	}
 	public String getAllMovies() {
 		Query query = manager.createQuery("Select m FROM Movie m");
-		Collection<Movie> accounts = (Collection<Movie>) query.getResultList();
-		return util.getJSONForObject(accounts);
+		Collection<Movie> Movies = (Collection<Movie>) query.getResultList();
+		return util.getJSONForObject(Movies);
 	}
 }

@@ -74,9 +74,9 @@ public class MovieServiceTest {
 	@Test
 	public void testGetAllMovies() {
 		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);
-		List<Movie> accounts = new ArrayList<Movie>();
-		accounts.add(util.getObjectForJSON("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}", Movie.class));
-		Mockito.when(query.getResultList()).thenReturn(accounts);
+		List<Movie> Movies = new ArrayList<Movie>();
+		Movies.add(util.getObjectForJSON("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}", Movie.class));
+		Mockito.when(query.getResultList()).thenReturn(Movies);
 		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllMovies());
 	}
 
