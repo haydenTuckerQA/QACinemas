@@ -58,4 +58,9 @@ public class MovieService {
 		// TODO Auto-generated method stub
 		return manager.find(Movie.class, id);
 	}
+
+	public Object getAllMovies() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

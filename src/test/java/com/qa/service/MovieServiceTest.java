@@ -14,7 +14,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.runners.MockitoJUnitRunner;
-
 import com.qa.domain.Movie;
 import com.qa.utility.JSONUtil;
 
@@ -32,7 +31,7 @@ public class MovieServiceTest {
 
 	private JSONUtil util;
 
-	
+	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}]";
 
 	private static final String MOCK_OBJECT = "{\"title\":\"John\",\"genre\":\"action\",\"ratingr\":\"18\"}";
 
@@ -60,6 +59,14 @@ public class MovieServiceTest {
 		reply =  repo.removeMovie((long) 1);
 		Assert.assertEquals(reply, "{\"message\": \"movie couldn't be removed\"}");
 		
+	}
+	@Test
+	public void testGetAllMovies() {
+		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);
+		List<Movie> accounts = new ArrayList<Movie>();
+		accounts.add(util.getObjectForJSON("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}", Movie.class));
+		Mockito.when(query.getResultList()).thenReturn(accounts);
+		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllMovies());
 	}
 
 }
