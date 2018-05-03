@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
+
 import com.qa.domain.Movie;
 import com.qa.utility.JSONUtil;
 
@@ -43,15 +44,18 @@ public class MovieService {
 	public String removeMovie(Long id)
 	{
 		Movie aMovie = findMovie(id);
-
+		if(aMovie!=null)
+		{
 			manager.remove(aMovie);
 			return "{\"message\": \"movie sucessfully removed\"}";
-		
+		}
+		else
+			return "{\"message\": \"movie couldn't be removed\"}";
 		
 	}
 
-	public Movie findMovie(long l) {
+	public Movie findMovie(long id) {
 		// TODO Auto-generated method stub
-		return null;
+		return manager.find(Movie.class, id);
 	}
 }
