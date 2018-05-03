@@ -39,4 +39,14 @@ public class MovieService {
 		manager.persist(aMovie);      
 		return "{\"message\": \"movie sucessfully added\"}";
 	}
+
+	public String removeMovie(long l) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Object findMovie(long l) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

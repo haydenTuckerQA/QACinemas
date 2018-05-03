@@ -44,11 +44,22 @@ public class MovieServiceTest {
 	}
 	
 	@Test
-	public void testCreateAccount() {
+	public void testCreateMovie() {
 		String reply = repo.addMovie(MOCK_OBJECT);
 		Assert.assertEquals(reply, "{\"message\": \"movie sucessfully added\"}");
 	}
 	
-	
+	@Test
+	public void testDeleteMovie() {
+		
+		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"action\",\"ratingr\":\"18\"}", Movie.class));
+		String reply = (String) repo.removeMovie((long) 1);
+		Assert.assertEquals(reply, "{\"message\": \"movie sucessfully removed\"}");
+		
+		Mockito.when(repo.findMovie((long) 1)).thenReturn(null);
+		reply =  repo.removeMovie((long) 1);
+		Assert.assertEquals(reply, "{\"message\": \"movie couldn't be removed\"}");
+		
+	}
 
 }
