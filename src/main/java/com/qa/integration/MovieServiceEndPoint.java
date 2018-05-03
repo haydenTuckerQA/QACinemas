@@ -12,7 +12,7 @@ import javax.ws.rs.Produces;
 import com.qa.service.IMovie;
 
 
-@Path("/account")
+@Path("/movie")
 public class MovieServiceEndPoint {
 
 	@Inject
@@ -22,7 +22,7 @@ public class MovieServiceEndPoint {
 	@GET
 	@Path("/json")
 	@Produces({ "application/json" })
-	public String getAllAccounts()
+	public String getAllMovies()
 	{
 		return repo.getAllMovies();
 	}
@@ -30,7 +30,7 @@ public class MovieServiceEndPoint {
 	@POST
 	@Path("/json")
 	@Produces({ "application/json" })
-	public String addAccount(String account)
+	public String addMovie(String account)
 	{
 		return repo.addMovie(account);
 	}
@@ -39,14 +39,14 @@ public class MovieServiceEndPoint {
 	@Path("/json")
 	@Produces({ "application/json" })
 	@Consumes({ "application/json" })
-	public String updateAccount(String account) {
+	public String updateMovie(String account) {
 		return repo.updateMovie(account);
 	}
 	
 	@DELETE
 	@Path("/json/{id}")
 	@Produces({ "application/json" })
-	public String removeAccount(@PathParam("id") Long id)
+	public String removeMovie(@PathParam("id") Long id)
 	{
 		return repo.removeMovie(id);
 	}
