@@ -32,9 +32,9 @@ public class MovieServiceTest {
 
 	private JSONUtil util;
 
-	
+	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}]";
 
-	private static final String MOCK_OBJECT = "{\"title\":\"John\",\"genre\":\"action\",\"ratingr\":\"18\"}";
+	private static final String MOCK_OBJECT = "{\"title\":\"John\",\"genre\":\"action\",\"rating\":\"18\"}";
 
 	@Before
 	public void setup() {
@@ -52,7 +52,7 @@ public class MovieServiceTest {
 	@Test
 	public void testDeleteMovie() {
 		
-		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"action\",\"ratingr\":\"18\"}", Movie.class));
+		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"action\",\"rating\":\"18\"}", Movie.class));
 		String reply = (String) repo.removeMovie((long) 1);
 		Assert.assertEquals(reply, "{\"message\": \"movie sucessfully removed\"}");
 		
@@ -60,6 +60,24 @@ public class MovieServiceTest {
 		reply =  repo.removeMovie((long) 1);
 		Assert.assertEquals(reply, "{\"message\": \"movie couldn't be removed\"}");
 		
+	}
+	@Test
+	public void testUpdateMovie() {
+		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"Doe\",\"rating\":\"1234\"}", Movie.class));
+		String reply = repo.updateMovie("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}");
+		Assert.assertEquals(reply, "{\"message\": \"movie sucessfully updated\"}");
+		
+		Mockito.when(repo.findMovie((long) 1)).thenReturn(null);
+		reply = repo.updateMovie("{\"id\":2,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}");
+		Assert.assertEquals(reply, "{\"message\": \"movie couldn't be updated\"}");
+	}
+	@Test
+	public void testGetAllMovies() {
+		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);
+		List<Movie> accounts = new ArrayList<Movie>();
+		accounts.add(util.getObjectForJSON("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}", Movie.class));
+		Mockito.when(query.getResultList()).thenReturn(accounts);
+		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllMovies());
 	}
 
 }
