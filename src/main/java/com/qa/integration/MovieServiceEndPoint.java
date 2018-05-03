@@ -30,17 +30,17 @@ public class MovieServiceEndPoint {
 	@POST
 	@Path("/json")
 	@Produces({ "application/json" })
-	public String addMovie(String account)
+	public String addMovie(String movie)
 	{
-		return repo.addMovie(account);
+		return repo.addMovie(movie);
 	}
 	
 	@PUT
 	@Path("/json")
 	@Produces({ "application/json" })
 	@Consumes({ "application/json" })
-	public String updateMovie(String account) {
-		return repo.updateMovie(account);
+	public String updateMovie(String movie) {
+		return repo.updateMovie(movie);
 	}
 	
 	@DELETE

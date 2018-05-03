@@ -75,7 +75,7 @@ public class MovieService implements IMovie{
 	}
 	public String getAllMovies() {
 		Query query = manager.createQuery("Select m FROM Movie m");
-		Collection<Movie> accounts = (Collection<Movie>) query.getResultList();
-		return util.getJSONForObject(accounts);
+		Collection<Movie> Movies = (Collection<Movie>) query.getResultList();
+		return util.getJSONForObject(Movies);
 	}
 }
