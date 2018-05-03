@@ -12,11 +12,12 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 import com.qa.domain.Movie;
+import com.qa.service.IMovie;
 import com.qa.utility.JSONUtil;
 
 @Model
 @Default
-public class MovieService {
+public class MovieService implements IMovie{
 
 	@Inject
 	private JSONUtil util;
