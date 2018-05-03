@@ -32,7 +32,7 @@ public class MovieServiceTest {
 
 	private JSONUtil util;
 
-	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"firstName\":\"Johny\",\"lastName\":\"Bloggs\",\"accountNumber\":\"1234\"}]";
+	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"1234\"}]";
 
 	private static final String MOCK_OBJECT = "{\"title\":\"John\",\"genre\":\"action\",\"rating\":\"18\"}";
 
