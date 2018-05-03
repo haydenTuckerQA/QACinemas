@@ -54,10 +54,24 @@ public class MovieService {
 	}
 
 	public Movie findMovie(long id) {
-		// TODO Auto-generated method stub
 		return manager.find(Movie.class, id);
 	}
 
+	@Transactional(REQUIRED)
+	public String updateMovie(String movie)
+	{
+		Movie aMovie = util.getObjectForJSON(movie, Movie.class);
+		Movie idMovie = findMovie(aMovie.getId());
+		if(idMovie!=null)
+		{
+			idMovie = aMovie;
+			manager.merge(idMovie);
+			return "{\"message\": \"movie sucessfully updated\"}";
+		}
+		else
+			return "{\"message\": \"movie couldn't be updated\"}";
+		
+	}
 	public String getAllMovies() {
 		Query query = manager.createQuery("Select m FROM Movie m");
 		Collection<Movie> accounts = (Collection<Movie>) query.getResultList();
