@@ -39,4 +39,23 @@ public class MovieService {
 		manager.persist(aMovie);      
 		return "{\"message\": \"movie sucessfully added\"}";
 	}
+
+	@Transactional(REQUIRED)
+	public String removeMovie(Long id)
+	{
+		Movie aMovie = findMovie(id);
+		if(aMovie!=null)
+		{
+			manager.remove(aMovie);
+			return "{\"message\": \"movie sucessfully removed\"}";
+		}
+		else
+			return "{\"message\": \"movie couldn't be removed\"}";
+		
+	}
+
+	public Movie findMovie(long id) {
+		// TODO Auto-generated method stub
+		return manager.find(Movie.class, id);
+	}
 }
