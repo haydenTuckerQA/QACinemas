@@ -61,7 +61,7 @@ public class MovieRepository implements IMovieRepository {
 			return util.getJSONForObject(moveFound);
 		}
 		else
-			return "{\"message\": \"movie be found!\"}";
+			return "{\"message\": \"movie cannot't be found!\"}";
 	}
 
 	public Movie findMovie(long id) {
