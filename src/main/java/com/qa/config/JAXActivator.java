@@ -1,4 +1,4 @@
-package com.qa.integration;
+package com.qa.config;
 
 import javax.ws.rs.ApplicationPath;
 import javax.ws.rs.core.Application;
