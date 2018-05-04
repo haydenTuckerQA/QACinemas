@@ -1,22 +1,15 @@
-package com.qa.integration;
-import javax.inject.Inject;
-import javax.ws.rs.Consumes;
-import javax.ws.rs.DELETE;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+package com.qa.restful;
+import com.qa.service.IMovieService;
 
-import com.qa.service.IMovie;
+import javax.inject.Inject;
+import javax.ws.rs.*;
 
 
 @Path("/movie")
-public class MovieServiceEndPoint {
+public class MovieEndPoint {
 
 	@Inject
-	private IMovie repo;
+	private IMovieService movieService;
 	
 	
 	@GET
@@ -24,7 +17,7 @@ public class MovieServiceEndPoint {
 	@Produces({ "application/json" })
 	public String getAllMovies()
 	{
-		return repo.getAllMovies();
+		return movieService.getAllMovies();
 	}
 	
 	@GET
@@ -32,7 +25,7 @@ public class MovieServiceEndPoint {
 	@Produces({ "application/json" })
 	public String getMovie(@PathParam("id") Long id)
 	{
-		return repo.getMovie(id);
+		return movieService.getMovie(id);
 	}
 	
 	@POST
@@ -40,7 +33,7 @@ public class MovieServiceEndPoint {
 	@Produces({ "application/json" })
 	public String addMovie(String movie)
 	{
-		return repo.addMovie(movie);
+		return movieService.addMovie(movie);
 	}
 	
 	@PUT
@@ -48,7 +41,7 @@ public class MovieServiceEndPoint {
 	@Produces({ "application/json" })
 	@Consumes({ "application/json" })
 	public String updateMovie(String movie) {
-		return repo.updateMovie(movie);
+		return movieService.updateMovie(movie);
 	}
 	
 	@DELETE
@@ -56,6 +49,6 @@ public class MovieServiceEndPoint {
 	@Produces({ "application/json" })
 	public String removeMovie(@PathParam("id") Long id)
 	{
-		return repo.removeMovie(id);
+		return movieService.removeMovie(id);
 	}
 }
