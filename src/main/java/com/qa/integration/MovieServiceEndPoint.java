@@ -27,6 +27,14 @@ public class MovieServiceEndPoint {
 		return repo.getAllMovies();
 	}
 	
+	@GET
+	@Path("/json/{id}")
+	@Produces({ "application/json" })
+	public String getMovie(@PathParam("id") Long id)
+	{
+		return repo.getMovie(id);
+	}
+	
 	@POST
 	@Path("/json")
 	@Produces({ "application/json" })

@@ -79,7 +79,7 @@ public class MovieService implements IMovie{
 		return util.getJSONForObject(Movies);
 	}
 	
-	public String getMovie(long id)
+	public String getMovie(Long id)
 	{
 		Movie idMovie = findMovie(id);
 		if(idMovie!=null)
