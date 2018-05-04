@@ -78,4 +78,15 @@ public class MovieService implements IMovie{
 		Collection<Movie> Movies = (Collection<Movie>) query.getResultList();
 		return util.getJSONForObject(Movies);
 	}
+	
+	public String getMovie(long id)
+	{
+		Movie idMovie = findMovie(id);
+		if(idMovie!=null)
+		{
+			return util.getJSONForObject(idMovie);
+		}
+		else
+			return "{\"message\": \"movie couldn't be found\"}";
+	}
 }
