@@ -1,0 +1,190 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+
+
+#admin-dashboard-items{
+ width:50%;
+ margin:0 auto;
+ overflow:auto;
+
+
+}
+
+#about {
+	width: 800px;
+
+}
+
+.dashboard-item{
+
+width:20%;
+margin:10px 10px;
+height :120px;
+float:left;
+
+padding-top: 40px;
+background-color:#68B7D7;
+min-width:250px;
+
+
+-webkit-border-radius: 10px;
+-moz-border-radius: 10px;
+border-radius: 10px;
+-webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+
+}
+
+
+
+.dashboard-item:hover{
+
+background-color: #8D76A0;
+}
+
+
+
+
+
+
+
+.movie_container #movies{
+	 display: inline-block; 
+    margin:50px;
+    text-align: center;
+
+}
+
+
+.large_container {
+	 display: inline-block; 
+    margin:50px;
+  
+
+}
+
+
+#large_img {
+	float: left;
+	width: 400px;
+
+}
+
+#description {
+	float: right;
+	padding: 100px;
+	width: 800px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.forms {
+ background-color: #333131;
+ padding: 50px;
+
+	
+}
+
+
+.forms h3{
+    color:#ffffff;
+	margin-bottom: 10px;
+	  background-color:#52B469;
+	  padding:10px;
+	  width:90%;
+}
+
+.forms input[type="text"],
+.forms input[type="password"],
+.forms input[type="email"],
+.forms input[type="decimal"],
+.forms input[type="number"]
+{
+    font-size: 14px;
+	width:90%;
+    height: 50px;
+    padding: 7px 9px;
+	display: block;
+	margin-bottom: 10px;
+	border : 1px solid #00A2D1;
+}
+
+.forms textarea {
+	
+width:90%;
+}
+
+
+.forms select {
+    font-size: 16px;
+	width:30%;
+    height: 35px;
+    padding: 7px 9px;
+	display: block;
+	margin-bottom: 20px;
+	border : 1px solid #506E3F;
+}
+
+.forms input[type="submit"] {
+	height:45px;
+	width:100px;
+	margin-bottom: 10px;
+
+	border : 1px solid #00A2D1;
+	border-radius:5px;
+	color:#fff;
+	cursor:pointer;
+	border:none;
+	background:#52B469;
+}
+input[type="submit"]:hover {
+   background: #6FC652;
+
+}
+
+.forms p{
+	font-size: 0.8em;
+	display:inline;
+	
+}
+
+
+
+.forms H3{
+	text-align: center;
+}
+
+.section {
+    max-width: 600px;
+    padding: 19px 29px 29px;
+    margin: 0 auto;
+	height:200px;
+	/*margin-top:90px;*/
+    background-color: lightgreen;
+	margin-top:110px;
+	margin-bottom: 50px;
+    border: 1px solid #e5e5e5;
+    -webkit-border-radius: 5px;
+       -moz-border-radius: 5px;
+            border-radius: 5px;
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+       -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+            box-shadow: 0 1px 2px rgba(0,0,0,.05);
+			
+	font-family:Tahoma, Geneva, sans-serif;
+	color:#990000;
+	font-weight:lighter;
+}

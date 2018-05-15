@@ -31,9 +31,9 @@ public class MovieServiceTest {
 
 	private JSONUtil util;
 
-	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"_18\",\"runtime\":0}]";
+	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\"}]";
 
-	private static final String MOCK_OBJECT = "{\"title\":\"John\",\"genre\":\"action\",\"rating\":\"_18\"}";
+	private static final String MOCK_OBJECT = "{\"title\":\"John\",\"genre\":\"action\"}";
 
 	@Before
 	public void setup() {
@@ -51,7 +51,7 @@ public class MovieServiceTest {
 	@Test
 	public void testDeleteMovie() {
 
-		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"action\",\"rating\":\"_18\"}", Movie.class));
+		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"action\"}", Movie.class));
 		String reply = (String) repo.removeMovie((long) 1);
 		Assert.assertEquals(reply, "{\"message\": \"movie sucessfully removed\"}");
 
@@ -62,27 +62,27 @@ public class MovieServiceTest {
 	}
 	@Test
 	public void testUpdateMovie() {
-		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"Doe\",\"rating\":\"_18\"}", Movie.class));
-		String reply = repo.updateMovie("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"_18\"}");
+		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"Doe\"}", Movie.class));
+		String reply = repo.updateMovie("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\"}");
 		Assert.assertEquals(reply, "{\"message\": \"movie sucessfully updated\"}");
 
 		Mockito.when(repo.findMovie((long) 1)).thenReturn(null);
-		reply = repo.updateMovie("{\"id\":2,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"_18\"}");
+		reply = repo.updateMovie("{\"id\":2,\"title\":\"Johny\",\"genre\":\"Bloggs\"}");
 		Assert.assertEquals(reply, "{\"message\": \"movie couldn't be updated\"}");
 	}
 	@Test
 	public void testGetAllMovies() {
 		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);
 		List<Movie> Movies = new ArrayList<Movie>();
-		Movies.add(util.getObjectForJSON("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\",\"rating\":\"_18\"}", Movie.class));
+		Movies.add(util.getObjectForJSON("{\"id\":1,\"title\":\"Johny\",\"genre\":\"Bloggs\"}", Movie.class));
 		Mockito.when(query.getResultList()).thenReturn(Movies);
 		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllMovies());
 	}
 	@Test
 	public void testGetMovie() {
-		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"Doe\",\"rating\":\"_18\"}", Movie.class));
+		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"Doe\"}", Movie.class));
 		String reply = repo.getMovie((long)1);
-		Assert.assertEquals(reply, "{\"title\":\"John\",\"genre\":\"Doe\",\"rating\":\"_18\",\"runtime\":0}");
+		Assert.assertEquals(reply, "{\"title\":\"John\",\"genre\":\"Doe\"}");
 	}
 
 }
