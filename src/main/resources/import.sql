@@ -7,3 +7,6 @@ INSERT INTO MOVIE (id, title, genre, IMDBID, imgURL) VALUES (1006, 'Avengers: Ag
 INSERT INTO MOVIE (id, title, genre, IMDBID, imgURL) VALUES (1007, 'Avengers: Age of Ultron','Action','2395427','https://ia.media-imdb.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg')
 INSERT INTO MOVIE (id, title, genre, IMDBID, imgURL) VALUES (1008, 'Avengers: Age of Ultron','Action','2395427','https://ia.media-imdb.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg')
 INSERT INTO MOVIE (id, title, genre, IMDBID, imgURL) VALUES (1009, 'Avengers: Age of Ultron','Action','2395427','https://ia.media-imdb.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg')
+
+INSERT INTO USER (id, username, password, role) VALUES (1, 'Admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'ADMIN')
+INSERT INTO USER (id, username, password, role) VALUES (2, 'User', '5f4dcc3b5aa765d61d8327deb882cf99', 'USER')
