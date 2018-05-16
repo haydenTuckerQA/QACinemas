@@ -4,7 +4,7 @@ var app = angular.module('myApp', []);
 $scope.refresh = function(){
 	
 	var ID = localStorage.getItem("store_id");
-	var specialURL = "http://www.omdbapi.com/?i=tt" + ID + "&apikey=cbf6483d";
+	var specialURL = "http://www.omdbapi.com/?i=" + ID + "&apikey=cbf6483d";
 
 		$http({
             method : "GET",
@@ -15,7 +15,10 @@ $scope.refresh = function(){
             $scope.myOMDB = response.statusText;
         });
 };
+$scope.local = function(ID)
+{
+	window.localStorage.setItem("store_id",ID);
+};
 
-
-    });
+});
 	

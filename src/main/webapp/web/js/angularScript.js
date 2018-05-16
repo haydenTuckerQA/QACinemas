@@ -14,7 +14,7 @@ var app = angular.module('myApp', []);
             };
         $scope.local = function(ID)
         {
-            window.localStorage.setItem("store_id",ID);
+            window.localStorage.setItem("store_id","tt" + ID);
         };
 
     });

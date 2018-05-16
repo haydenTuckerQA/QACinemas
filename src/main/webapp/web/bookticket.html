@@ -41,17 +41,13 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
 	<script src="js/angular.js"></script>
 	<script src="js/angularScript2.js"></script>
-    <link href="style.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
   <body>
-
-         
-
- 
 
          <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -67,8 +63,7 @@
       <ul class="nav navbar-nav">
 
         
-  
-             <li><a href="about.html">About</a></li>
+    <li><a href="about.html">About</a></li>
             <li><a href="listinggallery.html">Listing Gallery</a></li>
               <li><a href="contact.html">Contact</a></li>
         <li><a href="admin.html">Admin Section</a></li>
@@ -78,51 +73,107 @@
       
         
           <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
-
-                 <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+  
+               <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-              
+       
+       
       </ul>
     </div>
   </div>
 </nav>
 
+ 
+
 
     </div>
 
 <br><br><br>
 
-<div id="container">
-  <center><h1> QA Cinema </h1></center>
+<center>
 
+    <h1>Book Ticket Form </h1>
+
+
+<style>
+#book input[type=number], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+#book input[type=submit] {
+
+    background-color: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+ #book input[type=submit]:hover {
+    background-color: #45a049;
+}
+#book {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+	width: 53%;
+}
+h4 {
+  float: left;
+}
+</style>
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
+<div style="width:65%" align="center">
+<div id="large_img" align="left" style="float:left">
+  <h3>{{myOMDB.Title}}</h3>
+<img src="{{myOMDB.Poster}}" height="400" width="300">
+</div>
+<div id="book" style="float:right;text-align:left">
+
+  <form action="" >
+    <h4>Title </h4>
+    <label for="title"></label>
+    <b><h3>{{myOMDB.Title}}</h3></b>
+
+    <br>
+    <h4>Classification </h4>
+    <label for="classification"></label>
+    <b><h3>{{myOMDB.Genre}}</h3></b>
+    <br>
+    <h4>Date and Time</h4><br>
+	</br>
+	<select style="width:150px">
+  <option >Date</option>
+  <option >25/05</option>
+  <option >26/05</option>
+  <option >27/05</option>
+</select>
+    <select style="width:150px">
+  <option >Time</option>
+  <option >19:00</option>
+  <option >21:00</option>
+  <option >23:00</option>
+</select>
+
+    <br>
+    <h4>Number of tickets</h4><br>
+    <input type="number" id="seatnumber" name="seatnumber" placeholder="Number of tickets"><br>
+  
+
+  
+    <input type="submit" value="Book Ticket">
+  </form>
 </div>
 
 
-<div class="large_container" ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
-
-
-<div id="large_img">
-  <h2>{{myOMDB.Title}}</h2>
-<img src="{{myOMDB.Poster}}" height="600" width="400">
-</div>
-
-
-<div id="description">
-  <h4> Title: {{myOMDB.Title}}</h4>
-  <h4> Actors:  {{myOMDB.Actors}}</h4>
-  <h4> Movie Director: {{myOMDB.Director}}</h4><br><br>
-  <h5>{{myOMDB.Plot}}</h5>
-<br><br>
-<a href="bookticket.html"><button type="button" class="btn btn-primary" ng-click="local(myOMDB.imdbID)">Buy Tickets</button>
-</a>
-</div>
-
 
 
 </div>
-
-
-<br><br><br>
-
   </body>
 </html>
