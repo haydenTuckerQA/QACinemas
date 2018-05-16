@@ -12,21 +12,21 @@
     <title>Home</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-       <link rel="stylesheet" href="qunit-2.4.1.css">
-    <script src="typeit.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../qunit-2.4.1.css">
+    <script src="../js/typeit.js"></script>
      
     <div id="qunit-fixture"></div>
-    <script src="qunit-2.4.1.js"></script>
-    <script src="tests.js"></script>
-    <script src="typeit.js"></script>
+    <script src="../qunit-2.4.1.js"></script>
+    <script src="../tests.js"></script>
+    <script src="../js/typeit.js"></script>
 
      <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    
-    <script src="js/bootstrap.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
 
 
@@ -44,7 +44,7 @@
     <![endif]-->
 
     <!-- Custom styles for this template -->
-    <link href="style.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
   </head>
 <!-- NAVBAR
 ================================================== -->
@@ -75,9 +75,8 @@
       <ul class="nav navbar-nav navbar-right">
       
         
-          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
-
-               <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        <li><a onclick="logout()" href="/QACinemas/web/admin/admin.html"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+        <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
         <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
        
       </ul>
@@ -121,22 +120,13 @@
 </div>
 
 <br><br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
+	<script>
+		function logout()
+		{
+		    var xmlHttp = new XMLHttpRequest();
+		    xmlHttp.open( "GET", "http://localhost:8080/QACinemas/logout", false ); // false for synchronous request
+		    xmlHttp.send( null );
+		}
+	</script>    
   </body>
 </html>

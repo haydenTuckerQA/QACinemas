@@ -1,7 +1,5 @@
 package com.qa.domain;
 
-import java.util.Date;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -20,21 +18,7 @@ public class Movie {
 	private String IMDBID;
 	private String imgURL;
 
-	
-	
-
-	public String getIMDBID() {
-		return IMDBID;
-	}
-
-	public void setIMDBID(String iMDBID) {
-		IMDBID = iMDBID;
-	}
-
-
-
 	public Movie() {
-		
 	}
 	
 	public Movie(String title,String genre,String IMDBID) {
@@ -46,7 +30,6 @@ public class Movie {
 	public Long getId() {
 		return id;
 	}
-
 
 	public String getTitle() {
 		return title;
@@ -64,5 +47,19 @@ public class Movie {
 		this.genre = genre;
 	}
 
-	
+	public String getIMDBID() {
+		return IMDBID;
+	}
+
+	public void setIMDBID(String iMDBID) {
+		IMDBID = iMDBID;
+	}
+
+	public String getImgURL() {
+		return imgURL;
+	}
+
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
+	}
 }

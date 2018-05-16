@@ -82,7 +82,7 @@ public class MovieServiceTest {
 	public void testGetMovie() {
 		Mockito.when(repo.findMovie((long) 1)).thenReturn(util.getObjectForJSON("{\"title\":\"John\",\"genre\":\"Doe\"}", Movie.class));
 		String reply = repo.getMovie((long)1);
-		Assert.assertEquals(reply, "{\"title\":\"John\",\"genre\":\"Doe\"}");
+		Assert.assertEquals("{\"title\":\"John\",\"genre\":\"Doe\"}", reply);
 	}
 
 }

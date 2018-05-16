@@ -55,10 +55,10 @@ public class MovieRepository implements IMovieRepository {
 
 	@Override
 	public String getMovie(Long id) {
-		Movie moveFound = findMovie(id);
-		if(moveFound!=null)
+		Movie movieFound = findMovie(id);
+		if(movieFound!=null)
 		{
-			return util.getJSONForObject(moveFound);
+			return util.getJSONForObject(movieFound);
 		}
 		else
 			return "{\"message\": \"movie cannot't be found!\"}";
