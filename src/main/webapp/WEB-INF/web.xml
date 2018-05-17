@@ -53,7 +53,7 @@
     <auth-method>FORM</auth-method>
     <realm-name>qacinema</realm-name>
     <form-login-config>
-    	<form-login-page>/web/testlogin.html</form-login-page>
+    	<form-login-page>/web/login.html</form-login-page>
     	<form-error-page>/web/error.html</form-error-page>
     </form-login-config>
   </login-config>
