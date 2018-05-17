@@ -30,7 +30,7 @@
     <link href="../style.css" rel="stylesheet">
 	<!--our scripts-->
 	<script src="/QACinemas/web/js/angular.js"></script>
-	<script src="/QACinemas/web/js/angularScript.js"></script>
+	<script src="/QACinemas/web/js/angularScript5.js"></script>
   </head>
   <body ng-app="myApp" ng-controller="myCtrl">
 
@@ -39,32 +39,28 @@
 		<div ng-include="'/QACinemas/web/navbar.html'"></div>
 
 
-<br><br><br><br>
-<center>
-<h1> Admin Section </h1>
-</center>
 
 <br><br>
+<div>
 
 
-<div id="admin-dashboard-items">
-       <center>
 
-        <a href="/QACinemas/web/admin/add.html"><div class="dashboard-item">
-             <h4>Add Movies</h4>
-        </div>
-      </a>
+Title : <input ng-model="updateTitle" id="placeH1" placeholder=""/><br/><br/>
 
-         <a href="/QACinemas/web/admin/updel.html">
-        <div class="dashboard-item">
-             <h4>Update/Delete Movies</h4>
-        </div>
-        </a>
+Genre  : <input ng-model="updateGenre" id="placeH2" placeholder=""/><br/><br/>
 
-</center>
-        
-        
+IMDBID : <input ng-model="updateIMDBID" id="placeH3" placeholder=""/><br/><br/>
+
+Image URL : <input ng-model="updateURL" id="placeH4" placeholder=""/><br/><br/>
+
+<input type="button" value="Update" ng-click="updatedata( 
+updateTitle, updateGenre, updateIMDBID,updateURL)" /> <br/><br/>
+
 </div>
+
+<p>{{msg}}</p>
+
+
 
 <br><br><br><br>
 	<script>

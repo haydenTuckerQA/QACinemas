@@ -18,7 +18,6 @@
      
     <div id="qunit-fixture"></div>
     <script src="../qunit-2.4.1.js"></script>
-    <script src="../tests.js"></script>
     <script src="../js/typeit.js"></script>
 
      <!-- Bootstrap core JavaScript
@@ -27,10 +26,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    
     <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
     <link href="../style.css" rel="stylesheet">
 	<!--our scripts-->
 	<script src="/QACinemas/web/js/angular.js"></script>
-	<script src="/QACinemas/web/js/angularScript.js"></script>
+	<script src="/QACinemas/web/js/angularScript3.js"></script>
   </head>
   <body ng-app="myApp" ng-controller="myCtrl">
 
@@ -40,31 +41,25 @@
 
 
 <br><br><br><br>
-<center>
-<h1> Admin Section </h1>
-</center>
+<div>
 
-<br><br>
+Movie Name : <input ng-model="title" /><br/><br/>
+
+Genre : <input ng-model="genre" /><br/><br/>
+
+IMDB ID : <input ng-model="IMDBID" /><br/><br/>
+
+Image  URL  : <input ng-model="imgURL" /><br/><br/>
 
 
-<div id="admin-dashboard-items">
-       <center>
+<input type="button" value="Send" ng-click="postdata(title, genre, IMDBID, imgURL)" /> <br/><br/>
 
-        <a href="/QACinemas/web/admin/add.html"><div class="dashboard-item">
-             <h4>Add Movies</h4>
-        </div>
-      </a>
-
-         <a href="/QACinemas/web/admin/updel.html">
-        <div class="dashboard-item">
-             <h4>Update/Delete Movies</h4>
-        </div>
-        </a>
-
-</center>
-        
-        
 </div>
+
+<p>{{msg}}</p>
+
+
+
 
 <br><br><br><br>
 	<script>
