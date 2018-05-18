@@ -1,5 +1,6 @@
 package com.qa.service;
 
+import com.qa.domain.Movie;
 import com.qa.domain.Tickets;
 import com.qa.repository.TicketsRepository;
 import com.qa.utility.JSONUtil;
@@ -51,7 +52,8 @@ public class TicketsServiceTest {
 	@Test
 	public void testDeleteShowing()
 	{
-		String reply = repo.removeShowing(MOCK_OBJECT);
+		Mockito.when(repo.findShowing((long) 1)).thenReturn(util.getObjectForJSON("{\"movieID\": 1 ,\"dayShowing\":\"27/05\",\"hourShowing\":\"17:30\",\"typeShowing\":\"iMax\",\"screening\":1, \"seats\":100,\"disabledSeats\":5}", Tickets.class));
+		String reply = repo.removeShowing(1);
 		Assert.assertEquals(reply, "{\"message\": \"Showing sucessfully deleted\"}");
 	
 	}

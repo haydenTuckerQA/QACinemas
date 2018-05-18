@@ -40,12 +40,14 @@ public class TicketsRepository {
 		return "{\"message\": \"Showing sucessfully added\"}";
 	}
 
-	public String removeShowing(String showing) {
-		// TODO Auto-generated method stub
-		return null;
+	@Transactional(REQUIRED)
+	public String removeShowing(long id) {
+		Tickets aShowing = findShowing(id);
+		manager.remove(aShowing);
+		return "{\"message\": \"Showing sucessfully deleted\"}";
 	}
 	
-	public Tickets findMovie(long id) {
+	public Tickets findShowing(long id) {
 		return manager.find(Tickets.class, id);
 	}
 
