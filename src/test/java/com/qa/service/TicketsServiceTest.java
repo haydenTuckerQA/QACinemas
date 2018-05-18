@@ -76,7 +76,20 @@ public class TicketsServiceTest {
 	{
 		Mockito.when(repo.findShowing((long) 1)).thenReturn(util.getObjectForJSON("{\"movieID\": 1 ,\"dayShowing\":\"27/05\",\"hourShowing\":\"17:30\",\"typeShowing\":\"iMax\",\"screening\":1, \"seats\":100,\"disabledSeats\":5}", Tickets.class));
 		String reply = repo.buyTicket(1, "1_1");
-		Assert.assertEquals("{\"message\": \"Ticket sucessfully bought\"}", reply);		
+		Assert.assertEquals("{\"message\": \"Ticket sucessfully bought\"}", reply);	
+		
+		reply = repo.buyTicket(1, "1_101");
+		Assert.assertEquals("{\"message\": \"Not Enough Tickets\"}", reply);
+		
+		reply = repo.buyTicket(1, "2_1");
+		Assert.assertEquals("{\"message\": \"Ticket sucessfully bought\"}", reply);
+		
+		reply = repo.buyTicket(1, "2_50");
+		Assert.assertEquals("{\"message\": \"Not Enough Tickets\"}", reply);
+		
+		Mockito.when(repo.findShowing((long) 1)).thenReturn(null);
+		reply = repo.buyTicket(1, "1_1");
+		Assert.assertEquals("{\"message\": \"Showing not in the system\"}", reply);
 	}
 	
 
