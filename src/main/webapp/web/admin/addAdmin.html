@@ -9,16 +9,15 @@
     <meta name="author" content="">
    
 
-    <title>Home</title>
+    <title>Add Admin</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../qunit-2.4.1.css">
     <script src="../js/typeit.js"></script>
-     
+    
     <div id="qunit-fixture"></div>
     <script src="../qunit-2.4.1.js"></script>
-    <script src="../tests.js"></script>
     <script src="../js/typeit.js"></script>
 
      <!-- Bootstrap core JavaScript
@@ -27,49 +26,26 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
    
     <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Custom styles for this template -->
     <link href="../style.css" rel="stylesheet">
 	<!--our scripts-->
 	<script src="/QACinemas/web/js/angular.js"></script>
-	<script src="/QACinemas/web/js/angularScript.js"></script>
+	<script src="/QACinemas/web/js/ng-add-admin.js"></script>
   </head>
   <body ng-app="myApp" ng-controller="myCtrl">
 
 	<!-- NAVBAR
 	================================================== -->
-		<div ng-include="'/QACinemas/web/navbar.html'"></div>
-
-
-<br><br><br><br>
-<center>
-<h1> Admin Section </h1>
-</center>
-
-<br><br>
-
-
-<div id="admin-dashboard-items">
-	<center>
-		<a href="/QACinemas/web/admin/add.html">
-			<div class="dashboard-item">
-         		<h4>Add Movies</h4>
-    		</div>
-		</a>
-
-        <a href="/QACinemas/web/admin/updel.html">
-        	<div class="dashboard-item">
-             	<h4>Update/Delete Movies</h4>
-        	</div>
-        </a>
-        
-        <a href="/QACinemas/web/admin/addAdmin.html">
-			<div class="dashboard-item">
-         		<h4>Add Admin</h4>
-    		</div>
-		</a>
-	</center>
-</div>
-
-<br><br><br><br>
+	<div ng-include="'/QACinemas/web/navbar.html'"></div>
+    <br><br><br><br>
+    <div>
+        Username : <input ng-model="username" /><br/><br/>
+        Password : <input type="password" ng-model="password" /><br/><br/>
+        <input type="button" value="Send" ng-click="addAdmin(username, password)" /> <br/><br/>
+    </div>
+    <p>{{msg}}</p>
+    <br><br><br><br>
 	<script>
 		function logout()
 		{
