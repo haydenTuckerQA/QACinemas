@@ -43,8 +43,13 @@ public class TicketsRepository {
 	@Transactional(REQUIRED)
 	public String removeShowing(long id) {
 		Tickets aShowing = findShowing(id);
-		manager.remove(aShowing);
-		return "{\"message\": \"Showing sucessfully deleted\"}";
+		if(aShowing!=null)
+		{
+			manager.remove(aShowing);
+			return "{\"message\": \"Showing sucessfully deleted\"}";
+		}
+		else
+			return "{\"message\": \"Showing couldn't be deleted\"}";
 	}
 	
 	public Tickets findShowing(long id) {

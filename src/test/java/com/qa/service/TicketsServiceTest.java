@@ -56,6 +56,9 @@ public class TicketsServiceTest {
 		String reply = repo.removeShowing(1);
 		Assert.assertEquals(reply, "{\"message\": \"Showing sucessfully deleted\"}");
 	
+		Mockito.when(repo.findShowing((long) 1)).thenReturn(null);
+		reply = repo.removeShowing(1);
+		Assert.assertEquals(reply, "{\"message\": \"Showing couldn't be deleted\"}");
 	}
 
 	
