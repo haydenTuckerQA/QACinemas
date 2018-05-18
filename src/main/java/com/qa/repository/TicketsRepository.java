@@ -39,4 +39,9 @@ public class TicketsRepository {
 		return "{\"message\": \"Showing sucessfully added\"}";
 	}
 
+	public String removeShowing(String showing) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

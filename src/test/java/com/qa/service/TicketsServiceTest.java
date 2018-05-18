@@ -47,6 +47,14 @@ public class TicketsServiceTest {
 		String reply = repo.addShowing(MOCK_OBJECT);
 		Assert.assertEquals(reply, "{\"message\": \"Showing sucessfully added\"}");
 	}
+	
+	@Test
+	public void testDeleteShowing()
+	{
+		String reply = repo.removeShowing(MOCK_OBJECT);
+		Assert.assertEquals(reply, "{\"message\": \"Showing sucessfully deleted\"}");
+	
+	}
 
 	
 
