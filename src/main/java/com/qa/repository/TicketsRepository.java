@@ -34,10 +34,9 @@ public class TicketsRepository {
 
 	@Transactional(REQUIRED)
 	public String addShowing(String showing) {
-		/*Tickets aShowing = util.getObjectForJSON(showing, Tickets.class);
+		Tickets aShowing = util.getObjectForJSON(showing, Tickets.class);
 		manager.persist(aShowing);      
-		return "{\"message\": \"Showing sucessfully added\"}";*/
-		return "";
+		return "{\"message\": \"Showing sucessfully added\"}";
 	}
 
 }
