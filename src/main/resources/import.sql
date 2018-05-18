@@ -10,3 +10,9 @@ INSERT INTO MOVIE (id, title, genre, IMDBID, imgURL) VALUES (1009, 'Avengers: Ag
 
 INSERT INTO USER (id, username, password, role) VALUES (1, 'Admin', '5f4dcc3b5aa765d61d8327deb882cf99', 'ADMIN')
 INSERT INTO USER (id, username, password, role) VALUES (2, 'User', '5f4dcc3b5aa765d61d8327deb882cf99', 'USER')
+
+INSERT INTO TICKETS (id, movieID, dayShowing, hourShowing, typeShowing,screening , seats , disabledSeats) VALUES (1000, 1001,'27/06','15:30','iMAx',1,100,5)
+INSERT INTO TICKETS (id, movieID, dayShowing, hourShowing, typeShowing,screening , seats , disabledSeats) VALUES (1001, 1001,'27/06','16:30','iMAx',2,110,5)
+INSERT INTO TICKETS (id, movieID, dayShowing, hourShowing, typeShowing,screening , seats , disabledSeats) VALUES (1002, 1001,'27/06','17:30','iMAx',3,150,5)
+INSERT INTO TICKETS (id, movieID, dayShowing, hourShowing, typeShowing,screening , seats , disabledSeats) VALUES (1003, 1001,'27/06','18:30','iMAx',1,100,5)
+INSERT INTO TICKETS (id, movieID, dayShowing, hourShowing, typeShowing,screening , seats , disabledSeats) VALUES (1004, 1001,'27/06','19:30','iMAx',2,110,5)
