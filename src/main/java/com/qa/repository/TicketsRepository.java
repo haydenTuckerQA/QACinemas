@@ -17,7 +17,7 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 
 @Model
 @Default
-public class TicketsRepository {
+public class TicketsRepository implements ITicketsRepository {
 
 	@Inject
 	private JSONUtil util;
@@ -58,6 +58,7 @@ public class TicketsRepository {
 		return util.getJSONForObject(Tickets);
 	}
 	
+	@Transactional(REQUIRED)
 	public String buyTicket(long id, String ticket)
 	{
 		Tickets aShowing = findShowing(id);
