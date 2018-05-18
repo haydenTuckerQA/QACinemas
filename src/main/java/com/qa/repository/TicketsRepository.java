@@ -1,5 +1,6 @@
 package com.qa.repository;
 
+import com.qa.domain.Movie;
 import com.qa.domain.Tickets;
 import com.qa.utility.JSONUtil;
 
@@ -42,6 +43,10 @@ public class TicketsRepository {
 	public String removeShowing(String showing) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+	
+	public Tickets findMovie(long id) {
+		return manager.find(Tickets.class, id);
 	}
 
 }
