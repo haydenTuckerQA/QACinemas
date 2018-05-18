@@ -74,6 +74,7 @@ public class TicketsServiceTest {
 	@Test
 	public void testBuyTicket()
 	{
+		Mockito.when(repo.findShowing((long) 1)).thenReturn(util.getObjectForJSON("{\"movieID\": 1 ,\"dayShowing\":\"27/05\",\"hourShowing\":\"17:30\",\"typeShowing\":\"iMax\",\"screening\":1, \"seats\":100,\"disabledSeats\":5}", Tickets.class));
 		String reply = repo.buyTicket(1, "1_1");
 		Assert.assertEquals("{\"message\": \"Ticket sucessfully bought\"}", reply);		
 	}

@@ -60,8 +60,33 @@ public class TicketsRepository {
 	
 	public String buyTicket(long id, String ticket)
 	{
-		
-		return "";
+		Tickets aShowing = findShowing(id);
+		if(aShowing!=null)
+		{
+			System.out.print("you got here");
+			if(ticket.substring(0,1).equals("1"))
+			{
+				System.out.print("you got here 2");
+				if(aShowing.getSeats()>=Integer.parseInt(ticket.substring(2)))
+				{
+					aShowing.setSeats(aShowing.getSeats()-Integer.parseInt(ticket.substring(2)));
+					return "{\"message\": \"Ticket sucessfully bought\"}";
+				}
+				else
+					return "{\"message\": \"Not Enough Tickets\"}";
+			}
+			else
+			{
+				if(aShowing.getDisabledSeats()>=Integer.parseInt(ticket.substring(2)))
+				{
+					aShowing.setDisabledSeats(aShowing.getDisabledSeats()-Integer.parseInt(ticket.substring(2)));
+					return "{\"message\": \"Ticket sucessfully bought\"}";
+				}
+				else
+					return "{\"message\": \"Not Enough Tickets\"}";
+			}
+		}
+		return "{\"message\": \"Showing not in the system\"}";
 	}
 	
 	public Tickets findShowing(long id) {
