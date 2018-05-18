@@ -31,7 +31,7 @@ public class TicketsServiceTest {
 
 	private JSONUtil util;
 
-	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"movieID\": 1 ,\"dayShowing\":\"27/05\",\"hourShowing\":\"17:30\",\"typeShowing\":\"iMax\",\"screening\":1, \"seats\":100,\"disabledSeats\":5}\"]";
+	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"movieID\":1,\"dayShowing\":\"27/05\",\"hourShowing\":\"17:30\",\"typeShowing\":\"iMax\",\"screening\":1,\"seats\":100,\"disabledSeats\":5}]";
 
 	private static final String MOCK_OBJECT = "{\"movieID\": 1 ,\"dayShowing\":\"27/05\",\"hourShowing\":\"17:30\",\"typeShowing\":\"iMax\",\"screening\":1, \"seats\":100,\"disabledSeats\":5}";
 
@@ -66,7 +66,7 @@ public class TicketsServiceTest {
 		
 		Mockito.when(manager.createQuery(Mockito.anyString())).thenReturn(query);
 		List<Tickets> Tickets = new ArrayList<Tickets>();
-		Tickets.add(util.getObjectForJSON("{\"id\":1,\"movieID\": 1 ,\"dayShowing\":\"27/05\",\"hourShowing\":\"17:30\",\"typeShowing\":\"iMax\",\"screening\":1, \"seats\":100,\"disabledSeats\":5}", Tickets.class));
+		Tickets.add(util.getObjectForJSON("{\"id\":1,\"movieID\":1,\"dayShowing\":\"27/05\",\"hourShowing\":\"17:30\",\"typeShowing\":\"iMax\",\"screening\":1, \"seats\":100,\"disabledSeats\":5}", Tickets.class));
 		Mockito.when(query.getResultList()).thenReturn(Tickets);
 		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllShowings((long)1));
 	}

@@ -53,7 +53,9 @@ public class TicketsRepository {
 	}
 	
 	public String getAllShowings(Long movieID) {
-		return "";
+		Query query = manager.createQuery("Select m FROM Tickets m WHERE m.movieID = " + movieID);
+		Collection<Tickets> Tickets = (Collection<Tickets>) query.getResultList();
+		return util.getJSONForObject(Tickets);
 	}
 	
 	public Tickets findShowing(long id) {
