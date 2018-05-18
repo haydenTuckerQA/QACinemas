@@ -27,9 +27,9 @@ public class UserServiceTest {
 	private Query query;
 	private JSONUtil util;
 
-	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"username\":\"User\",\"role\":\"User\"}]";
+	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"username\":\"User\",\"password\":\"password\",\"role\":\"User\"}]";
 
-	private static final String MOCK_OBJECT = "{\"id\":1,\"username\":\"User\",\"role\":\"User\"}";
+	private static final String MOCK_OBJECT = "{\"id\":1,\"username\":\"User\",\"password\":\"password\",\"role\":\"User\"}";
 
 	@Before
 	public void setup() {
@@ -41,6 +41,6 @@ public class UserServiceTest {
 	@Test
 	public void testCreateAdmin() {
 		String reply = repo.addAdmin(MOCK_OBJECT);
-		Assert.assertEquals("{\"message\": \"movie sucessfully added\"}", reply);
+		Assert.assertEquals("{\"message\": \"admin sucessfully added\"}", reply);
 	}
 }

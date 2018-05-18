@@ -1,11 +1,14 @@
 package com.qa.restful;
 import com.qa.service.IMovieService;
 
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.ws.rs.*;
 
 
 @Path("/movie")
+@DeclareRoles({"ADMIN","USER"})
 public class MovieEndPoint {
 
 	@Inject
@@ -31,6 +34,7 @@ public class MovieEndPoint {
 	@POST
 	@Path("/json")
 	@Produces({ "application/json" })
+	@RolesAllowed("ADMIN")
 	public String addMovie(String movie)
 	{
 		return movieService.addMovie(movie);
@@ -40,6 +44,7 @@ public class MovieEndPoint {
 	@Path("/json")
 	@Produces({ "application/json" })
 	@Consumes({ "application/json" })
+	@RolesAllowed("ADMIN")
 	public String updateMovie(String movie) {
 		return movieService.updateMovie(movie);
 	}
@@ -47,6 +52,7 @@ public class MovieEndPoint {
 	@DELETE
 	@Path("/json/{id}")
 	@Produces({ "application/json" })
+	@RolesAllowed("ADMIN")
 	public String removeMovie(@PathParam("id") Long id)
 	{
 		return movieService.removeMovie(id);
