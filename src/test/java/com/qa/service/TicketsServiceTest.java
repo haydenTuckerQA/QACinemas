@@ -70,7 +70,13 @@ public class TicketsServiceTest {
 		Mockito.when(query.getResultList()).thenReturn(Tickets);
 		Assert.assertEquals(MOCK_DATA_ARRAY, repo.getAllShowings((long)1));
 	}
-
+	
+	@Test
+	public void testBuyTicket()
+	{
+		String reply = repo.buyTicket(1, "1_1");
+		Assert.assertEquals("{\"message\": \"Ticket sucessfully bought\"}", reply);		
+	}
 	
 
 }

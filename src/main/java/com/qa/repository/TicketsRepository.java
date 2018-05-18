@@ -58,6 +58,12 @@ public class TicketsRepository {
 		return util.getJSONForObject(Tickets);
 	}
 	
+	public String buyTicket(long id, String ticket)
+	{
+		
+		return "";
+	}
+	
 	public Tickets findShowing(long id) {
 		return manager.find(Tickets.class, id);
 	}
