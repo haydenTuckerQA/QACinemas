@@ -52,6 +52,10 @@ public class TicketsRepository {
 			return "{\"message\": \"Showing couldn't be deleted\"}";
 	}
 	
+	public String getAllShowings(Long movieID) {
+		return "";
+	}
+	
 	public Tickets findShowing(long id) {
 		return manager.find(Tickets.class, id);
 	}
