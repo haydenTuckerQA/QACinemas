@@ -74,17 +74,20 @@ public class PaypalService {
         return payment;
     }
 
-    public Payment executePayment(String payerID){
+    public Payment executePayment(String payerID, String paymentId) {
         APIContext apiContext = new APIContext(clientId, clientSecret, "sandbox");
         PaymentExecution paymentExecution = new PaymentExecution();
         paymentExecution.setPayerId(payerID);
+        Payment payment1 = null;
         try {
-            payment.execute(apiContext, paymentExecution);
+            //payment.execute(apiContext, paymentExecution);
+            payment1 = Payment.get(apiContext, paymentId);
+            payment1 = payment1.execute(apiContext, paymentExecution);
         } catch (PayPalRESTException e) {
             e.printStackTrace();
         }
 
-        return payment;
+        return payment1;
     }
 
 }

@@ -21,8 +21,7 @@ public class PaypalEndPoint {
     @Path("/success")
     @Produces("application/json")
     @Consumes("application/json")
-    public String paymentSuccess(@QueryParam("PayerID") String payerID){
-        System.out.println(payerID);
-        return payService.executePayment(payerID).toJSON();
+    public String paymentSuccess(@QueryParam("PayerID") String payerID, @QueryParam("paymentId") String paymentId){
+        return payService.executePayment(payerID, paymentId).toJSON();
     }
 }
