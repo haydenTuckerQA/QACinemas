@@ -11,8 +11,6 @@ public class PaypalService {
 
     private String clientId = "AceevttjXwlQN9jUYXWxTqbUSsFRuRlCD8A4-V6_NzxGDPxIca6pcQOw5o6A9M1G4hWxda9A4VjQTfXD";
     private String clientSecret = "EB3sMkBOAaNDxLXNtDwXVZ33wv5GYrNX9AcEdCzSRWSrJtI70To0ZDTDKtjMKWOr10OKAseeT1gEds2P";
-    private Payment payment;
-
     public Payment getPayment(){
 
         Amount amount = new Amount();
@@ -51,7 +49,7 @@ public class PaypalService {
         Payer payer = new Payer();
         payer.setPaymentMethod("paypal");
 
-        payment = new Payment();
+        Payment payment = new Payment();
         payment.setIntent("sale");
         payment.setPayer(payer);
         payment.setTransactions(transactions);
@@ -78,16 +76,16 @@ public class PaypalService {
         APIContext apiContext = new APIContext(clientId, clientSecret, "sandbox");
         PaymentExecution paymentExecution = new PaymentExecution();
         paymentExecution.setPayerId(payerID);
-        Payment payment1 = null;
+        Payment executedPayment = null;
         try {
             //payment.execute(apiContext, paymentExecution);
-            payment1 = Payment.get(apiContext, paymentId);
-            payment1 = payment1.execute(apiContext, paymentExecution);
+            executedPayment = Payment.get(apiContext, paymentId);
+            executedPayment = executedPayment.execute(apiContext, paymentExecution);
         } catch (PayPalRESTException e) {
             e.printStackTrace();
         }
 
-        return payment1;
+        return executedPayment;
     }
 
 }
