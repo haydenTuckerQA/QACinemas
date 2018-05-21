@@ -37,9 +37,8 @@ public class UserServiceTest {
 	private User user;
 	private List<User> users;
 	
-	private static final String MOCK_DATA_ARRAY = "[{\"id\":1,\"username\":\"User\",\"password\":\"password\",\"role\":\"USER\"}]";
-
-	private static final String MOCK_OBJECT = "{\"id\":1,\"username\":\"User\",\"password\":\"password\",\"role\":\"USER\"}";
+	private static final String MOCK_DATA_ARRAY = "[{\"username\":\"User\",\"password\":\"password\",\"role\":\"USER\"}]";
+	private static final String MOCK_OBJECT = "{\"username\":\"User\",\"password\":\"password\",\"role\":\"USER\"}";
 
 	@Before
 	public void setup() {
@@ -59,13 +58,14 @@ public class UserServiceTest {
 
 	@Test
 	public void testDeleteAdmin() {
-		User expectedValue = null;
-		User actualValue = repo.deleteAdmin("User");
+		Mockito.when(manager.createQuery(Mockito.anyString(), Mockito.eq(User.class))).thenReturn(query);
+		String expectedValue = "null";
+		String actualValue = repo.deleteAdmin("User");
 		Assert.assertEquals(expectedValue, actualValue);
 		
-		Mockito.when(manager.find(Mockito.eq(User.class), Mockito.anyLong())).thenReturn(user);
+		Mockito.when(query.getSingleResult()).thenReturn(user);
 		
-		expectedValue = user;
+		expectedValue = MOCK_OBJECT;
 		actualValue = repo.deleteAdmin("User");
 		Assert.assertEquals(expectedValue, actualValue);
 	}
@@ -73,22 +73,22 @@ public class UserServiceTest {
 	@Test
 	public void testGetAllAdmins() {
 		Mockito.when(manager.createQuery(Mockito.anyString(), Mockito.eq(User.class))).thenReturn(query);
-		
 		Mockito.when(query.getResultList()).thenReturn(users);
 		
-		List<User> expectedValue = users;
-		List<User> actualValue =  repo.getAllAdmins();
+		String expectedValue = MOCK_DATA_ARRAY;
+		String actualValue =  repo.getAllAdmins();
 		Assert.assertEquals(expectedValue, actualValue);
 	}
 
 	@Test
 	public void testGetAdmin() {
-		User expectedValue = null;
-		User actualValue = repo.getAdmin("User");
+		Mockito.when(manager.createQuery(Mockito.anyString(), Mockito.eq(User.class))).thenReturn(query);
+		String expectedValue = "null";
+		String actualValue = repo.getAdmin("User");
 		Assert.assertEquals(expectedValue, actualValue);
 		
-		Mockito.when(manager.find(Mockito.eq(User.class), Mockito.anyLong())).thenReturn(user);
-		expectedValue = user;
+		Mockito.when(query.getSingleResult()).thenReturn(user);
+		expectedValue = MOCK_OBJECT;
 		actualValue = repo.getAdmin("User");
 		Assert.assertEquals(expectedValue, actualValue);
 	}
