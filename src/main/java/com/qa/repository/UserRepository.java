@@ -4,12 +4,10 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import javax.annotation.security.DeclareRoles;
-import javax.annotation.security.RolesAllowed;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
 import com.qa.domain.Role;
@@ -23,6 +21,7 @@ public class UserRepository implements IUserRepository {
 	
 	@PersistenceContext(unitName = "primary")
 	private EntityManager manager;
+	
 	@Transactional(REQUIRED)
 	public String addAdmin(String admin) {
 		User aAdmin = util.getObjectForJSON(admin, User.class);
@@ -47,11 +46,36 @@ public class UserRepository implements IUserRepository {
 		return "{\"message\": \"admin sucessfully added\"}";
 	}
 	
+	@Transactional(REQUIRED)
+	public String deleteAdmin(String username) {
+		User admin = findUser(username);
+		
+		if (admin != null) {
+			manager.remove(admin);
+		}
+		return util.getJSONForObject(admin);
+	}
+	
+	public String getAdmin(String username) {
+		return util.getJSONForObject(findUser(username));
+	}
+	
+	public String getAllAdmins() {
+		TypedQuery<User> query = manager.createQuery("SELECT u FROM User u", User.class);
+		return util.getJSONForObject(query.getResultList());
+	}
+	
 	public void setManager(EntityManager manager) {
 		this.manager = manager;
 	}
 
 	public void setUtil(JSONUtil util) {
 		this.util = util;
+	}
+
+	private User findUser(String username) {
+		TypedQuery<User> query = manager.createQuery("SELECT u FROM User u WHERE username = :username", User.class);
+		query.setParameter("username", username);
+		return query.getSingleResult();
 	}
 }
