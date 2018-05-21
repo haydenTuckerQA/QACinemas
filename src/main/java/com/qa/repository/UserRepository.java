@@ -4,6 +4,7 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 import javax.annotation.security.DeclareRoles;
 import javax.annotation.security.RolesAllowed;
@@ -47,6 +48,21 @@ public class UserRepository implements IUserRepository {
 		return "{\"message\": \"admin sucessfully added\"}";
 	}
 	
+	public User getAdmin(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public User deleteAdmin(String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public List<User> getAllAdmins() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 	public void setManager(EntityManager manager) {
 		this.manager = manager;
 	}
@@ -54,4 +70,6 @@ public class UserRepository implements IUserRepository {
 	public void setUtil(JSONUtil util) {
 		this.util = util;
 	}
+
+	
 }
