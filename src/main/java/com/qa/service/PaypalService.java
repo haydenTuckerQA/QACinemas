@@ -16,19 +16,19 @@ public class PaypalService {
 
     public Payment createPayment(Booking booking){
 
-        double totalPice = booking.getPrice();
+        double totalPrice = booking.getPrice();
         double tax = booking.getPrice()*0.2;
 
 
         Details details = new Details();
-        details.setSubtotal(totalPice+"");
+        details.setSubtotal(totalPrice+"");
         details.setTax(tax+"");
         //details.setBooking_id(booking.getId());
         //details.setDate(booking.getDate());
 
         Amount amount = new Amount();
         amount.setCurrency("GBP");
-        amount.setTotal((totalPice+tax)+"");
+        amount.setTotal((totalPrice+tax)+"");
         amount.setDetails(details);
 
         Transaction transaction = new Transaction();
@@ -37,7 +37,7 @@ public class PaypalService {
 
         ItemList itemList = new ItemList();
         List<Item> items = new ArrayList<>();
-        Item ticket = new Item("Cinema Booking", booking.getSeats()+"", booking.getPrice()+"", "GBP");
+        Item ticket = new Item("Cinema Booking", "1", booking.getPrice()+"", "GBP");
         ticket.setDescription("This is a Cinema booking for "+booking.getSeats() +" adults.");
         items.add(ticket);
         itemList.setItems(items);
