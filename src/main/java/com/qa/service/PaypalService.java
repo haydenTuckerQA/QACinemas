@@ -14,21 +14,21 @@ public class PaypalService {
     private String clientId = "AceevttjXwlQN9jUYXWxTqbUSsFRuRlCD8A4-V6_NzxGDPxIca6pcQOw5o6A9M1G4hWxda9A4VjQTfXD";
     private String clientSecret = "EB3sMkBOAaNDxLXNtDwXVZ33wv5GYrNX9AcEdCzSRWSrJtI70To0ZDTDKtjMKWOr10OKAseeT1gEds2P";
 
-    public Payment getPayment(Booking booking){
+    public Payment createPayment(Booking booking){
 
-        double totalPice = booking.getPrice()*booking.getSeats();
-        double tax = (booking.getPrice()*booking.getSeats())*0.2;
+        double totalPice = booking.getPrice();
+        double tax = booking.getPrice()*0.2;
 
 
         Details details = new Details();
-        details.setSubtotal((totalPice+tax)+"");
+        details.setSubtotal(totalPice+"");
         details.setTax(tax+"");
-        details.setBooking_id(booking.getId());
-        details.setDate(booking.getDate());
+        //details.setBooking_id(booking.getId());
+        //details.setDate(booking.getDate());
 
         Amount amount = new Amount();
         amount.setCurrency("GBP");
-        amount.setTotal(totalPice+"");
+        amount.setTotal((totalPice+tax)+"");
         amount.setDetails(details);
 
         Transaction transaction = new Transaction();
@@ -41,7 +41,6 @@ public class PaypalService {
         ticket.setDescription("This is a Cinema booking for "+booking.getSeats() +" adults.");
         items.add(ticket);
         itemList.setItems(items);
-
         transaction.setItemList(itemList);
         List<Transaction> transactions = new ArrayList<Transaction>();
         transactions.add(transaction);

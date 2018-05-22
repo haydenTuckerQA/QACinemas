@@ -12,10 +12,10 @@ public class PaypalEndPoint {
     @Inject
     PaypalService payService;
 
-    @GET
+    @POST
     @Produces({"application/json"})
-    public String getPayment(Booking booking){
-        return payService.getPayment(booking).toJSON();
+    public String createPayment(Booking booking){
+        return payService.createPayment(booking).toJSON();
     }
 
     @GET
