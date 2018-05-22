@@ -1,0 +1,29 @@
+<link rel="stylesheet" type="text/css" href="css/map.css">
+<script src="js/map.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initMap&key=AIzaSyB7Wo8FUPL-959trmT-6jxG6JgCcnkBO2E" type="text/javascript">
+</script>
+
+<div id="map"></div>
+<div id="map_bar">
+  <div class="floating-panel">
+    <b>From: </b>
+    <input type='text' id="start_input" placeholder="Enter start location">
+    <button id="route_button">Find route</button>
+    or
+    <button id="my_location_button">My Location</button>
+  </div>
+  <div class="floating-panel">
+    <b>Nearby: </b>
+    ATM<input id="atm" type="checkbox">
+    Bar<input id="bar" type="checkbox">
+    Restaurant<input id="restaurant" type="checkbox"> |
+    Radius
+    <select id="radius">
+      <option value=250>250m</option>
+      <option value=500>500m</option>
+      <option value=750>750m</option>
+      <option value=1000>1000m</option>
+    </select>
+    <button id="places_button">Show</button>
+  </div>
+</div>
