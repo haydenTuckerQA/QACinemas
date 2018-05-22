@@ -1,0 +1,20 @@
+#bbfc_certificate_modal {
+	display: grid;
+	grid-template-columns: 1fr 5fr;
+	grid-row-gap: 20px;
+	align-items: center;
+}
+
+#bbfc_additional_information {
+	grid-column-start: 1;
+	grid-column-end: 3;
+	text-align: center;
+}
+
+.bbfc_certificate_image {
+	margin: 0 auto;
+}
+
+.bbfc_certificate_description {
+	padding: 0px 5px;
+}
