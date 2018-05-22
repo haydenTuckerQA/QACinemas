@@ -47,7 +47,7 @@
   </head>
 <!-- NAVBAR
 ================================================== -->
-  <body>
+  <body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
 
          <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -82,11 +82,6 @@
     </div>
   </div>
 </nav>
-
- 
-
-
-    </div>
 
 <br><br><br>
 
@@ -128,7 +123,7 @@ h4 {
   float: left;
 }
 </style>
-<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
+<div>
 <div style="width:65%" align="center">
 <div id="large_img" align="left" style="float:left">
   <h3>{{myOMDB.Title}}</h3>
@@ -175,5 +170,7 @@ h4 {
 
 
 </div>
+</div>
+</center>
   </body>
 </html>

@@ -1,8 +1,10 @@
 package com.qa.service;
+import com.qa.utility.Details;
 
 import com.paypal.api.payments.*;
 import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
+import com.qa.domain.Booking;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,16 +13,22 @@ public class PaypalService {
 
     private String clientId = "AceevttjXwlQN9jUYXWxTqbUSsFRuRlCD8A4-V6_NzxGDPxIca6pcQOw5o6A9M1G4hWxda9A4VjQTfXD";
     private String clientSecret = "EB3sMkBOAaNDxLXNtDwXVZ33wv5GYrNX9AcEdCzSRWSrJtI70To0ZDTDKtjMKWOr10OKAseeT1gEds2P";
-    public Payment getPayment(){
+
+    public Payment createPayment(Booking booking){
+
+        double totalPice = booking.getPrice();
+        double tax = booking.getPrice()*0.2;
+
+
+        Details details = new Details();
+        details.setSubtotal(totalPice+"");
+        details.setTax(tax+"");
+        //details.setBooking_id(booking.getId());
+        //details.setDate(booking.getDate());
 
         Amount amount = new Amount();
         amount.setCurrency("GBP");
-        amount.setTotal("24.00");
-
-        Details details = new Details();
-        details.setSubtotal("20.00");
-        details.setTax("4.00");
-
+        amount.setTotal((totalPice+tax)+"");
         amount.setDetails(details);
 
         Transaction transaction = new Transaction();
@@ -29,19 +37,10 @@ public class PaypalService {
 
         ItemList itemList = new ItemList();
         List<Item> items = new ArrayList<>();
-        Item ticket = new Item("Cinema Ticket", "1", "20.00", "GBP");
-        ticket.setDescription("An adult Cinema ticket for Dunkkirk film at 1200");
+        Item ticket = new Item("Cinema Booking", booking.getSeats()+"", booking.getPrice()+"", "GBP");
+        ticket.setDescription("This is a Cinema booking for "+booking.getSeats() +" adults.");
         items.add(ticket);
         itemList.setItems(items);
-
-        ShippingAddress shippingAddress = new ShippingAddress("Saber");
-        shippingAddress.setLine1("23 Lover Walk");
-        shippingAddress.setCity("Southampton");
-        shippingAddress.setCountryCode("GB");
-        shippingAddress.setPostalCode("SO17 2HU");
-        itemList.setShippingAddress(shippingAddress);
-
-
         transaction.setItemList(itemList);
         List<Transaction> transactions = new ArrayList<Transaction>();
         transactions.add(transaction);

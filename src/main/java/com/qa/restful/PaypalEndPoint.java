@@ -1,5 +1,6 @@
 package com.qa.restful;
 
+import com.qa.domain.Booking;
 import com.qa.service.PaypalService;
 
 import javax.inject.Inject;
@@ -11,10 +12,10 @@ public class PaypalEndPoint {
     @Inject
     PaypalService payService;
 
-    @GET
+    @POST
     @Produces({"application/json"})
-    public String getPayment(){
-        return payService.getPayment().toJSON();
+    public String createPayment(Booking booking){
+        return payService.createPayment(booking).toJSON();
     }
 
     @GET
