@@ -1,80 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-   
+	<head>
+    	<title>About Us</title>
+		<link href="style.css" rel="stylesheet">
+		<script src="/QACinemas/web/js/angular.js"></script>
+		<script src="/QACinemas/web/js/angularScript.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" rel="stylesheet" >
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  	</head>
 
-    <title>About Us</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="qunit-2.4.1.css">
-    
-     
-    <div id="qunit-fixture"></div>
-    <script src="/QACinemas/web/qunit-2.4.1.js"></script>
-
-     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   
-    <script src="/QACinemas/web/js/bootstrap.min.js"></script>
-    <link href="style.css" rel="stylesheet">
-	<!-- our scirpt-->
-	<script src="/QACinemas/web/js/angular.js"></script>
-	<script src="/QACinemas/web/js/angularScript.js"></script>
-  </head>
-
-  <body  ng-app="myApp" ng-controller="myCtrl">
-
-  <!-- NAVBAR
-================================================== -->
-  <div ng-include="'/QACinemas/web/navbar.html'"></div>
-        
-
- 
-
-<br><br><br>
-
-<div id="container">
-<center><h1> About US</h1></center><br><br>
-
-</div>
-
-
-<img src="images/banner.jpg" width="100%" height="500px">
-
-<br><br><br>
-<center>
-<div id="about">
-<h3> A bit about QA Cinema</h3> <br>
-
-<h5>Founded back in 2000, QA Cinemas is one of the largest cinemas chains in the UK. We are currently expanding and aim to over our viewers the most latest movies that out. We have hosted over 800 films and we are continuing to grow.
-  We give our viewers the best cinema experiences ever and aim for viewers to have the best user experience possible. 
-
-Today we are owned by AMC Theatres, the largest movie exhibition company in the world, and our passion for film and the whole cinema experience is so deep-rooted that it is embodied in everything we do. We’re determined to give every guest a great experience every time they visit, and so continuously strive to innovate and improve our hospitality and services.
-
-We have always been at the forefront of cinematic experience: both IMAX and ISENSE offer extraordinary cinema viewing, and we also operate London’s BFI IMAX which is the largest cinema screen in the UK. We have the UK’s biggest cinema loyalty scheme - QA Première Club - with over 2 million members. And in 2016 we launched our popular Limitless card – offering guests the chance to see all the films they want, as often as they like.
-
-We also offer so much more than popcorn and soft drinks. We now have Costa Coffee in many of our cinemas, a superb cocktail lounge called Ambar at some sites, or our Gallery offering includes unlimited popcorn, nachos and soft drinks in other locations. And The Lounge is the ultimate in luxury cinema-going.
-
-We pride ourselves in the very best cinema experience: cutting-edge technology and the widest choice of experiences (this extends way beyond the box office – we also screen live sports and cultural events and special screenings for specific groups too).
-
-</h5>
-
-<br><br>
-
-<h3> For more information please <a href="'/QACinemas/web/contact.html'">contact us!</a></h3>
-</div>
-</center>
-
-
-
-  </body>
+	<body  ng-app="myApp" ng-controller="myCtrl">
+  		<div ng-include="'/QACinemas/web/navbar.html'"></div>
+    	<div class="container-fluid" style="margin-top:50px; padding: 0;">
+			<div id="container">
+				<center><h1> About US</h1></center><br><br>
+			</div>
+	
+			<img src="images/banner.jpg" width="100%" height="500px">
+			<br><br><br>
+			<center>
+				<div id="about">
+					<h3> A bit about QA Cinema</h3> <br>
+					<h5>Founded back in 2000, QA Cinemas is one of the largest cinemas chains in the UK. 
+						We are currently expanding and aim to over our viewers the most latest movies that out. 
+						We have hosted over 800 films and we are continuing to grow.
+	  					We give our viewers the best cinema experiences ever and aim for viewers to have the best user experience possible. 
+						Today we are owned by AMC Theatres, the largest movie exhibition company in the world, and our passion for film and the whole cinema experience is so deep-rooted that it is embodied in everything we do. 
+						We’re determined to give every guest a great experience every time they visit, and so continuously strive to innovate and improve our hospitality and services.
+						We have always been at the forefront of cinematic experience: both IMAX and ISENSE offer extraordinary cinema viewing, and we also operate London’s BFI IMAX which is the largest cinema screen in the UK. We have the UK’s biggest cinema loyalty scheme - QA Première Club - with over 2 million members. 
+						And in 2016 we launched our popular Limitless card – offering guests the chance to see all the films they want, as often as they like.
+						We also offer so much more than popcorn and soft drinks. We now have Costa Coffee in many of our cinemas, a superb cocktail lounge called Ambar at some sites, or our Gallery offering includes unlimited popcorn, nachos and soft drinks in other locations. And The Lounge is the ultimate in luxury cinema-going.
+						We pride ourselves in the very best cinema experience: cutting-edge technology and the widest choice of experiences (this extends way beyond the box office – we also screen live sports and cultural events and special screenings for specific groups too).
+					</h5>
+					<br><br>
+					<h3> For more information please <a href="'/QACinemas/web/contact.html'">contact us!</a></h3>
+				</div>
+			</center>
+		</div>
+	</body>
 </html>
