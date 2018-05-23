@@ -55,8 +55,8 @@ public class PaypalService {
         payment.setNoteToPayer("Please arrive 15 min before start of the film");
 
         RedirectUrls redirectUrls = new RedirectUrls();
-        redirectUrls.setCancelUrl("http://localhost:8080/QACinemas/api/pay/cancel");
-        redirectUrls.setReturnUrl("http://localhost:8080/QACinemas/api/pay/success");
+        redirectUrls.setCancelUrl("http://localhost:8080/QACinemas/web/index.html");
+        redirectUrls.setReturnUrl("http://localhost:8080/QACinemas/web/paymentSuccess.html");
         payment.setRedirectUrls(redirectUrls);
         try {
             APIContext apiContext = new APIContext(clientId, clientSecret, "sandbox");

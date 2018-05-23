@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <title>Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="qunit-2.4.1.css">
+
+
+    <div id="qunit-fixture"></div>
+    <script src="/QACinemas/web/qunit-2.4.1.js"></script>
+
+
+    <!-- Bootstrap core JavaScript
+   ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+    <script src="/QACinemas/web/js/bootstrap.min.js"></script>
+    <!--our scripts-->
+    <script src="/QACinemas/web/js/angular.js"></script>
+    <script src="/QACinemas/web/js/angular-route.js"></script>
+
+    <script>
+        var app = angular.module('myApp', ['ngRoute']);
+
+        app.controller('myCtrl', function($scope, $http) {
+            $scope.success = function (){
+                var params = window.location.href.split("?")[1];
+                $http({
+                    method: "GET",
+                    url: "http://localhost:8080/QACinemas/api/pay/success?"+params
+                }).then(function (res) {
+                        $scope.payment = res.data;
+                        console.log(res.data)
+                    }, function (err) {
+                        console.log(err);
+                    }
+                )
+            };
+        });
+    </script>
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body ng-app="myApp" ng-controller="myCtrl" ng-init="success()">
+<!-- NAVBAR
+================================================== -->
+<div ng-include="'/QACinemas/web/navbar.html'"></div>
+
+<p>Your payment was successfull!</p>
+<p>Thank you</p>
+<pre>{{payment}}</pre>
+
+</body>
+</html>
