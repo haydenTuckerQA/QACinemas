@@ -1,0 +1,25 @@
+<html>
+	<head>
+   		<title>Update/Delete Admin</title>
+    	<link href="../css/style.css" rel="stylesheet">
+		<script src="/QACinemas/web/js/angular.js"></script>
+		<script src="/QACinemas/web/js/angularScript5.js"></script>
+  		<script src="/QACinemas/web/js/logout.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" rel="stylesheet" >
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  	</head>
+  	<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
+		<div ng-include="'/QACinemas/web/admin_navbar.html'"></div>
+		<br><br>
+		<div>
+			Title : <input ng-model="updateTitle" id="placeH1" placeholder=""/><br/><br/>
+			Genre  : <input ng-model="updateGenre" id="placeH2" placeholder=""/><br/><br/>
+			IMDBID : <input ng-model="updateIMDBID" id="placeH3" placeholder=""/><br/><br/>
+			Image URL : <input ng-model="updateURL" id="placeH4" placeholder=""/><br/><br/>
+			<input type="button" value="Update" ng-click="updatedata(updateTitle, updateGenre, updateIMDBID,updateURL)" /> <br/><br/>
+		</div>
+		<p>{{msg}}</p>
+	</body>
+</html>

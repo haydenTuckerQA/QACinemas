@@ -15,7 +15,7 @@ imgURL : imgURL
 //Call the services
 $http.post('http://localhost:8080/QACinemas/api/movie/json', JSON.stringify(data)).then(function (response) {
 if (response.data)
-$scope.msg = "Account Added to the database!";
+$scope.msg = "Movie Added to the database!";
 }, function (response) {
 $scope.msg = "Output Message :  Service not Exists";
 });
