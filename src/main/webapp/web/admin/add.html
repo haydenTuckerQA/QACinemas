@@ -1,74 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-   
-
-    <title>Home</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../qunit-2.4.1.css">
-    <script src="../js/typeit.js"></script>
-     
-    <div id="qunit-fixture"></div>
-    <script src="../qunit-2.4.1.js"></script>
-    <script src="../js/typeit.js"></script>
-
-     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   
-    <script src="../js/bootstrap.min.js"></script>
-
-    <!-- Custom styles for this template -->
-    <link href="../style.css" rel="stylesheet">
-	<!--our scripts-->
-	<script src="/QACinemas/web/js/angular.js"></script>
-	<script src="/QACinemas/web/js/angularScript3.js"></script>
-  </head>
-  <body ng-app="myApp" ng-controller="myCtrl">
-
-	<!-- NAVBAR
-	================================================== -->
-		<div ng-include="'/QACinemas/web/navbar.html'"></div>
-
-
-<br><br><br><br>
-<div>
-
-Movie Name : <input ng-model="title" /><br/><br/>
-
-Genre : <input ng-model="genre" /><br/><br/>
-
-IMDB ID : <input ng-model="IMDBID" /><br/><br/>
-
-Image  URL  : <input ng-model="imgURL" /><br/><br/>
-
-
-<input type="button" value="Send" ng-click="postdata(title, genre, IMDBID, imgURL)" /> <br/><br/>
-
-</div>
-
-<p>{{msg}}</p>
-
-
-
-
-<br><br><br><br>
-	<script>
-		function logout()
-		{
-		    var xmlHttp = new XMLHttpRequest();
-		    xmlHttp.open( "GET", "http://localhost:8080/QACinemas/logout", false ); // false for synchronous request
-		    xmlHttp.send( null );
-		}
-	</script>    
-  </body>
+	<head>
+   		<title>Add Movie</title>
+    	<link href="../css/style.css" rel="stylesheet">
+		<script src="/QACinemas/web/js/angular.js"></script>
+		<script src="/QACinemas/web/js/angularScript3.js"></script>
+  		<script src="/QACinemas/web/js/logout.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" rel="stylesheet" >
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  	</head>
+  	<body ng-app="myApp" ng-controller="myCtrl">
+		<div ng-include="'/QACinemas/web/admin_navbar.html'"></div>
+		<div class="container-fluid" style="margin-top:50px; padding: 0;">
+			<div>
+				Movie Name : <input ng-model="title" /><br/><br/>
+				Genre : <input ng-model="genre" /><br/><br/>
+				IMDB ID : <input ng-model="IMDBID" /><br/><br/>
+				Image  URL  : <input ng-model="imgURL" /><br/><br/>
+				<input type="button" value="Send" ng-click="postdata(title, genre, IMDBID, imgURL)" /> <br/><br/>
+			</div>
+			<p>{{msg}}</p>
+		</div>
+	</body>
 </html>
