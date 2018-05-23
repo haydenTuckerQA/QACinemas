@@ -144,21 +144,13 @@ h4 {
     <h4>Date and Time</h4><br>
 	</br>
 	<select style="width:150px">
-  <option >Date</option>
-  <option >25/05</option>
-  <option >26/05</option>
-  <option >27/05</option>
-</select>
-    <select style="width:150px">
-  <option >Time</option>
-  <option >19:00</option>
-  <option >21:00</option>
-  <option >23:00</option>
-</select>
-
-    <br>
+		<option ng-repeat="x in myWelcome | orderBy : 'dayShowing'" >{{x.dayShowing}}, {{x.hourShowing}}</option>
+	</select>
+	<br>
     <h4>Number of tickets</h4><br>
-    <input type="number" id="seatnumber" name="seatnumber" placeholder="Number of tickets"><br>
+    <input type="number" min="0" id="seatnumber" name="seatnumber" value="0"><br>
+	<h4>Number of disabled tickets</h4><br>
+    <input type="number" min="0" id="seatnumber" name="seatDisableNumber" value="0"><br>
   
 
   

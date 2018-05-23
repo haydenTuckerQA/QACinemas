@@ -44,8 +44,8 @@
 		<div class="movie_container">
 			<center>
 				<div id="movies" ng-repeat="x in myWelcome">
-					<a href="/QACinemas/web/edit.html" ng-click="local(x.IMDBID)"><img src="{{x.imgURL}}"  height="200" width="150"></a>
-					<a href="/QACinemas/web/edit.html"><h5>{{x.title}}</h5></a>
+					<a href="/QACinemas/web/edit.html" ng-click="local(x.IMDBID,x.id)"><img src="{{x.imgURL}}"  height="200" width="150"></a>
+					<a href="/QACinemas/web/edit.html" ng-click="local(x.IMDBID,x.id)"><h5>{{x.title}}</h5></a>
 				</div>
 			</center>
 		</div>
