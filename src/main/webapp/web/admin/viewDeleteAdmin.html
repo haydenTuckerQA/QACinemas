@@ -12,7 +12,7 @@
   	</head>
   	<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
 		<div ng-include="'/QACinemas/web/admin_navbar.html'"></div>
-		<div class="container-fluid" style="margin-top:50px; padding: 0;">
+		<div class="container-fluid" style="margin-top:70px; padding: 0;">
 			<table cellspacing="0">
 				<tr>
 		            <th>ID</th>
@@ -20,10 +20,10 @@
 		            <th>Password</th>
 				</tr>
 				<tr ng-repeat="x in myWelcome">
-		            <td>{{x.id}}</td>
-		            <td>{{x.username}}</td>
-		            <td>{{x.password}}</td>
-					<td><input type="button" value="Delete" ng-click="deletedata(x.username)"/></td>
+		            <td style="padding-right: 20px;">{{x.id}}</td>
+		            <td style="padding-right: 20px;">{{x.username}}</td>
+		            <td style="padding-right: 20px;">{{x.password}}</td>
+					<td style="padding-right: 20px;"><input type="button" value="Delete" ng-click="deletedata(x.username)"/></td>
 				</tr>
 			</table>
 			<p>{{msg}}</p>

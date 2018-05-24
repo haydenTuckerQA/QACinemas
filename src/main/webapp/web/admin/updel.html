@@ -12,19 +12,19 @@
   	</head>
   	<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
 		<div ng-include="'/QACinemas/web/admin_navbar.html'"></div>
-		<div class="container-fluid" style="margin-top:50px; padding: 0;">
-			<table cellspacing="0">
+		<div class="container-fluid" style="margin-top:70px; padding: 0;">
+			<table cellspacing="0" style="padding-right: 10px;">
 				<tr>
 		            <th>Title</th>
 		            <th>Genre</th>
 		            <th>IMDB ID</th>
 				</tr>
 					<tr ng-repeat="x in myWelcome">
-		            <th>{{x.title}}</th>
-		            <th>{{x.genre}}</th>
-		            <th>{{x.IMDBID}}</th>
-					<th><a href="/QACinemas/web/admin/edit.html" target="_blank"><input type="button" value="Edit" ng-click="pass(x.id,x.title,x.genre,x.IMDBID,x.imgURL)"/></a></th>
-					<th><input type="button" value="Delete" ng-click="deletedata(x.id)"/></th>
+		            <td style="padding-right: 20px;">{{x.title}}</td>
+		            <td style="padding-right: 20px;">{{x.genre}}</td>
+		            <td style="padding-right: 20px;">{{x.IMDBID}}</td>
+					<td style="padding-right: 20px;"><a href="/QACinemas/web/admin/edit.html" target="_blank"><input type="button" value="Edit" ng-click="pass(x.id,x.title,x.genre,x.IMDBID,x.imgURL)"/></a></td>
+					<td><input type="button" value="Delete" ng-click="deletedata(x.id)"/></td>
 					<th><a href="/QACinemas/web/admin/showing.html" target="_blank"><input type="button" value="Showings" ng-click="local(x.id)"/></a></th>
 				</tr>
 			</table>
