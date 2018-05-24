@@ -16,8 +16,8 @@ public class PaypalService {
 
     public Payment createPayment(Booking booking){
 
-        double totalPrice = booking.getPrice();
-        double tax = booking.getPrice()*0.2;
+        double totalPrice = Math.round(booking.getPrice());
+        double tax = Math.round(booking.getPrice()*0.2);
 
 
         Details details = new Details();

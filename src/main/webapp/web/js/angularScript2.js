@@ -1,5 +1,5 @@
 var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope, $http) {
+    app.controller('myCtrl', function($scope, $http, $window) {
 
         $scope.data =  {
             dateAndTime: "",
@@ -12,10 +12,24 @@ var app = angular.module('myApp', []);
                 dateTime: $scope.data.dateAndTime,
                 movie_id: localStorage.getItem("movie_id"),
                 seats: $scope.data.tickets+$scope.data.dTickets,
-                price: ($scope.data.tickets*6)+($scope.data.dTickets*8)
+                price: (($scope.data.tickets*6)+($scope.data.dTickets*8)).toFixed(2)
             };
+            $http({
+                method: "POST",
+                url: "http://localhost:8080/QACinemas/api/pay",
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: reqData
+            }).then(function (res) {
+                    $scope.payment = res.data;
+                    $window.location.href = res.data.links[1].href;
+                    console.log(res.data);
 
-            console.log(reqData);
+                }, function (err) {
+                    console.log(err);
+                }
+            )
         };
 
     $scope.srch;
