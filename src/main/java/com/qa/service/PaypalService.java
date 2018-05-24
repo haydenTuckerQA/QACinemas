@@ -1,4 +1,5 @@
 package com.qa.service;
+import com.qa.repository.BookingRepository;
 import com.qa.utility.Details;
 
 import com.paypal.api.payments.*;
@@ -6,10 +7,14 @@ import com.paypal.base.rest.APIContext;
 import com.paypal.base.rest.PayPalRESTException;
 import com.qa.domain.Booking;
 
+import javax.inject.Inject;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PaypalService {
+
+    @Inject
+    private BookingRepository bookingRepository;
 
     private String clientId = "AceevttjXwlQN9jUYXWxTqbUSsFRuRlCD8A4-V6_NzxGDPxIca6pcQOw5o6A9M1G4hWxda9A4VjQTfXD";
     private String clientSecret = "EB3sMkBOAaNDxLXNtDwXVZ33wv5GYrNX9AcEdCzSRWSrJtI70To0ZDTDKtjMKWOr10OKAseeT1gEds2P";
@@ -18,7 +23,6 @@ public class PaypalService {
 
         double totalPrice = Math.round(booking.getPrice());
         double tax = Math.round(booking.getPrice()*0.2);
-
 
         Details details = new Details();
         details.setSubtotal(totalPrice+"");
@@ -61,6 +65,7 @@ public class PaypalService {
         try {
             APIContext apiContext = new APIContext(clientId, clientSecret, "sandbox");
             payment = payment.create(apiContext);
+            bookingRepository.addBooking(booking);
             // For debug purposes only: System.out.println(createdPayment.toString());
         } catch (PayPalRESTException e) {
             // Handle errors

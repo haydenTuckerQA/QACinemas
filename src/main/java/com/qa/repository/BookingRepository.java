@@ -37,6 +37,13 @@ public class BookingRepository implements IBookingRepository {
 
     @Override
     @Transactional(Transactional.TxType.REQUIRED)
+    public String addBooking(Booking booking) {
+        manager.persist(booking);
+        return "{\"message\": \"Booking sucessfully added\"}";
+    }
+
+    @Override
+    @Transactional(Transactional.TxType.REQUIRED)
     public String updateBooking(String booking) {
         Booking updatedBooking = util.getObjectForJSON(booking, Booking.class);
         Booking bookingFound = findBooking(updatedBooking.getId());
