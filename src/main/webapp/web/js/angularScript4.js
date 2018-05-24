@@ -21,6 +21,9 @@ $scope.refresh();
 $scope.msg = "Output Message : Service not Exists";
 });
 };
+$scope.local = function(id) {
+	window.localStorage.setItem("idShowing", id);
+};
 $scope.refresh =  function(){
        $http({
             method : "GET",
