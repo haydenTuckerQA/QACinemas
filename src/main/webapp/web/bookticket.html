@@ -57,7 +57,7 @@
 						</div>
 						<div id="book" style="float:right;text-align:left">
 
-	  						<form action="" >
+	  						<form ng-submit="bookTicket()">
 							    <h4>Title </h4>
 							    <label for="title"></label>
 							    <b><h3>{{myOMDB.Title}}</h3></b>
@@ -69,14 +69,14 @@
 							    <br>
 							    <h4>Date and Time</h4><br>
 								</br>
-								<select style="width:150px">
+								<select style="width:150px" ng-model="data.dateAndTime">
 									<option ng-repeat="x in myWelcome | orderBy : 'dayShowing'" >{{x.dayShowing}}, {{x.hourShowing}}</option>
 								</select>
 								<br>
 							    <h4>Number of tickets</h4><br>
-							    <input type="number" min="0" id="seatnumber" name="seatnumber" value="0"><br>
+							    <input type="number" min="0" id="seatnumber" name="seatnumber" value="0" ng-model="data.tickets"><br>
 								<h4>Number of disabled tickets</h4><br>
-							    <input type="number" min="0" id="seatnumber" name="seatDisableNumber" value="0"><br>
+							    <input type="number" min="0" id="seatnumber" name="seatDisableNumber" value="0" ng-model="data.dTickets"><br>
 							    <input type="submit" value="Book Ticket">
 	  						</form>
 						</div>
