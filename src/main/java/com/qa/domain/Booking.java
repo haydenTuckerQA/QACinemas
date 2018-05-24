@@ -11,8 +11,7 @@ public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String time;
-    private String date;
+    private String dateTime;
     private Long movie_id;
     private int seats;
     private double price;
@@ -21,9 +20,8 @@ public class Booking {
 
     }
 
-    public Booking(String time, String date, Long movie_id, int seats, double price) {
-        this.time = time;
-        this.date = date;
+    public Booking(String dateTime, Long movie_id, int seats, double price) {
+        this.dateTime = dateTime;
         this.movie_id = movie_id;
         this.seats = seats;
         this.price = price;
@@ -33,12 +31,8 @@ public class Booking {
         return id;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public String getDate() {
-        return date;
+    public String getDateTime() {
+        return dateTime;
     }
 
     public Long getMovie_id() {
@@ -53,12 +47,8 @@ public class Booking {
         return price;
     }
 
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateTime(String dateTime) {
+        this.dateTime = dateTime;
     }
 
     public void setMovie_id(Long movie_id) {
