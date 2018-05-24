@@ -1,9 +1,9 @@
 <html>
 	<head>
-   		<title>Update/Delete Admin</title>
+   		<title>Showings</title>
     	<link href="../css/style.css" rel="stylesheet">
 		<script src="/QACinemas/web/js/angular.js"></script>
-		<script src="/QACinemas/web/js/angularScript4.js"></script>
+		<script src="/QACinemas/web/js/getShowing.js"></script>
   		<script src="/QACinemas/web/js/logout.js"></script>
 		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" rel="stylesheet" >
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -12,22 +12,27 @@
   	</head>
   	<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
 		<div ng-include="'/QACinemas/web/admin_navbar.html'"></div>
-		<div class="container-fluid" style="margin-top:70px; padding: 0;">
-			<table cellspacing="0" style="padding-right: 10px;">
+		<div class="container-fluid" style="margin-top:50px; padding: 0;">
+			<table cellspacing="0">
 				<tr>
-		            <th>Title</th>
-		            <th>Genre</th>
-		            <th>IMDB ID</th>
+		            <th>Date of the film</th>
+		            <th>Hour of the film</th>
+		            <th>Type of Showing</th>
+					<th>Screen</th>
+					<th>Seats</th>
+					<th>Disabled Seats</th>
 				</tr>
 					<tr ng-repeat="x in myWelcome">
-		            <td style="padding-right: 20px;">{{x.title}}</td>
-		            <td style="padding-right: 20px;">{{x.genre}}</td>
-		            <td style="padding-right: 20px;">{{x.IMDBID}}</td>
-					<td style="padding-right: 20px;"><a href="/QACinemas/web/admin/edit.html" target="_blank"><input type="button" value="Edit" ng-click="pass(x.id,x.title,x.genre,x.IMDBID,x.imgURL)"/></a></td>
-					<td><input type="button" value="Delete" ng-click="deletedata(x.id)"/></td>
-					<th><a href="/QACinemas/web/admin/showing.html" target="_blank"><input type="button" value="Showings" ng-click="local(x.id)"/></a></th>
+		            <th>{{x.dayShowing}}</th>
+		            <th>{{x.hourShowing}}</th>
+		            <th>{{x.typeShowing}}</th>
+					<th>{{x.screening}}</th>
+					<th>{{x.seats}}</th>
+					<th>{{x.disabledSeats}}</th>
+					<th><input type="button" value="Delete" ng-click="deletedata(x.id)"/></th>
 				</tr>
 			</table>
+			<a href="/QACinemas/web/admin/createShowing.html"><input type="button" value="Create" /></a>
 			<p>{{msg}}</p>	
 		</div>
 	</body>

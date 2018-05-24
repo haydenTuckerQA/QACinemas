@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+   		<title>Add Showing</title>
+    	<link href="../css/style.css" rel="stylesheet">
+		<script src="/QACinemas/web/js/angular.js"></script>
+		<script src="/QACinemas/web/js/createShowing.js"></script>
+  		<script src="/QACinemas/web/js/logout.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" rel="stylesheet" >
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  	</head>
+  	<body ng-app="myApp" ng-controller="myCtrl">
+		<div ng-include="'/QACinemas/web/admin_navbar.html'"></div>
+		<div class="container-fluid" style="margin-top:50px; padding: 0;">
+			<div>
+				Day of the Showing : <input ng-model="day" /><br/><br/>
+				Hour of the Shwoing : <input ng-model="hour" /><br/><br/>
+				Type of Showing : <input ng-model="type" /><br/><br/>
+				Screen  : <input type="number" min="1" ng-model="screen" /><br/><br/>
+				Seats  : <input type="number" min="0" ng-model="seats" /><br/><br/>
+				Disabled Seats  : <input type="number" min="0" ng-model="seatsD" /><br/><br/>
+				<input type="button" value="Send" ng-click="postdata(day, hour, type, screen,seats,seatsD)" /> <br/><br/>
+			</div>
+			<p>{{msg}}</p>
+		</div>
+	</body>
+</html>
