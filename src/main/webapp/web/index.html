@@ -1,53 +1,29 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-   
+	<link rel="icon" type="image/png" href="/QACinemas/web/images/movie.png" />
+	<head>
+    	<title>QA Cinemas</title>
+	    <link href="css/style.css" rel="stylesheet">
+		<script src="/QACinemas/web/js/angular.js"></script>
+		<script src="/QACinemas/web/js/angularScript.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" rel="stylesheet" >
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  	</head>
 
-    <title>Home</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="qunit-2.4.1.css">
-    
-     
-    <div id="qunit-fixture"></div>
-    <script src="/QACinemas/web/qunit-2.4.1.js"></script>
-    
-
-     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   
-    <script src="/QACinemas/web/js/bootstrap.min.js"></script>
-	<!--our scripts-->
-	<script src="/QACinemas/web/js/angular.js"></script>
-	<script src="/QACinemas/web/js/angularScript.js"></script>
-    <link href="style.css" rel="stylesheet">
-  </head>
-
-	<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()" >
-	<!-- NAVBAR
-	================================================== -->
-		<div ng-include="'/QACinemas/web/navbar.html'"></div>
-
-     <!-- Carousel
-    ================================================== -->
-		<div id="myCarousel" class="carousel slide" data-ride="carousel" ng-include="'/QACinemas/web/carousel.html'"></div>
-
-		<div class="movie_container">
-			<center>
-				<div id="movies" ng-repeat="x in myWelcome">
-					<a href="/QACinemas/web/edit.html" ng-click="local(x.IMDBID,x.id)"><img src="{{x.imgURL}}"  height="200" width="150"></a>
-					<a href="/QACinemas/web/edit.html" ng-click="local(x.IMDBID,x.id)"><h5>{{x.title}}</h5></a>
-				</div>
-			</center>
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
+		<span ng-include="'/QACinemas/web/navbar.html'"></span>
+		<div class="container-fluid" style="margin-top:50px; padding: 0;">
+			<div id="myCarousel" class="carousel slide" data-ride="carousel" ng-include="'/QACinemas/web/carousel.html'" style="height: 30%"></div>
+			<div class="movie_container">
+				<center>
+					<div id="movies" ng-repeat="x in myWelcome">
+						<a href="/QACinemas/web/edit.html" ng-click="local(x.IMDBID,x.id)"><img src="{{x.imgURL}}"  height="200" width="150"></a>
+						<a href="/QACinemas/web/edit.html" ng-click="local(x.IMDBID,x.id)"><h5>{{x.title}}</h5></a>
+					</div>
+				</center>
+			</div>
 		</div>
 	</body>
 </html>

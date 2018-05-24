@@ -1,168 +1,88 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-   
+  	<head>
+	   	<title>Book Ticket</title>
+	    <link href="style.css" rel="stylesheet">
+		<script src="js/angular.js"></script>
+		<script src="js/angularScript2.js"></script>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" rel="stylesheet" >
+		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <title>Home</title>
+		<style>
+			#book input[type=number], select {
+			    width: 100%;
+			    padding: 12px 20px;
+			    margin: 8px 0;
+			    display: inline-block;
+			    border: 1px solid #ccc;
+			    border-radius: 4px;
+			    box-sizing: border-box;
+			}
+			#book input[type=submit] {
+			
+			    background-color: #4CAF50;
+			    color: white;
+			    padding: 14px 20px;
+			    margin: 8px 0;
+			    border: none;
+			    border-radius: 4px;
+			    cursor: pointer;
+			}
+			 #book input[type=submit]:hover {
+			    background-color: #45a049;
+			}
+			#book {
+			    border-radius: 5px;
+			    background-color: #f2f2f2;
+			    padding: 20px;
+				width: 53%;
+			}
+			h4 {
+			  float: left;
+			}
+		</style>
+  	</head>
+	<body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
+		<div ng-include="'/QACinemas/web/navbar.html'"></div>
+		<div class="container-fluid" style="margin-top:50px; padding: 0;">
+			<center>
+				<h1>Book Ticket Form </h1>
+				<div>
+					<div style="width:65%" align="center">
+						<div id="large_img" align="left" style="float:left">
+  							<h3>{{myOMDB.Title}}</h3>
+							<img src="{{myOMDB.Poster}}" height="400" width="300">
+						</div>
+						<div id="book" style="float:right;text-align:left">
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-       <link rel="stylesheet" href="qunit-2.4.1.css">
-     
-    <div id="qunit-fixture"></div>
-    <script src="qunit-2.4.1.js"></script>
-
-     <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-
-
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-    <!-- Custom styles for this template -->
-    <link href="style.css" rel="stylesheet">
-	<script src="js/angular.js"></script>
-	<script src="js/angularScript2.js"></script>
-  </head>
-<!-- NAVBAR
-================================================== -->
-  <body ng-app="myApp" ng-controller="myCtrl" ng-init="refresh()">
-
-         <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    <a class="navbar-brand" href="index.html">Home</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav">
-
-        
-    <li><a href="about.html">About</a></li>
-            <li><a href="listinggallery.html">Listing Gallery</a></li>
-              <li><a href="contact.html">Contact</a></li>
-        <li><a href="/QACinemas/web/admin/admin.html">Admin Section</a></li>
-          </ul>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-      
-        
-          <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
-  
-               <li><a href="register.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-       
-       
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<br><br><br>
-
-<center>
-
-    <h1>Book Ticket Form </h1>
-
-
-<style>
-#book input[type=number], select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-#book input[type=submit] {
-
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
- #book input[type=submit]:hover {
-    background-color: #45a049;
-}
-#book {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-	width: 53%;
-}
-h4 {
-  float: left;
-}
-</style>
-<div>
-<div style="width:65%" align="center">
-<div id="large_img" align="left" style="float:left">
-  <h3>{{myOMDB.Title}}</h3>
-<img src="{{myOMDB.Poster}}" height="400" width="300">
-</div>
-<div id="book" style="float:right;text-align:left">
-
-  <form ng-submit="bookTicket(dateAndTime, tickets, dTickets)">
-    <h4>Title </h4>
-    <label for="title"></label>
-    <b><h3>{{myOMDB.Title}}</h3></b>
-
-    <br>
-    <h4>Classification </h4>
-    <label for="classification"></label>
-    <b><h3>{{myOMDB.Genre}}</h3></b>
-    <br>
-    <h4>Date and Time</h4><br>
-	</br>
-	<select style="width:150px" ng-model="data.dateAndTime">
-		<option ng-repeat="x in myWelcome | orderBy : 'dayShowing'" >{{x.dayShowing}}, {{x.hourShowing}}</option>
-	</select>
-	<br>
-    <h4>Number of tickets</h4><br>
-    <input type="number" min="0" id="seatnumber" name="seatnumber" value="0" ng-model="data.tickets"><br>
-	<h4>Number of disabled tickets</h4><br>
-    <input type="number" min="0" id="seatnumber" name="seatDisableNumber" value="0" ng-model="data.dTickets"><br>
-  
-      <p>{{tickets}}</p>
-  
-    <input type="submit" value="Book Ticket">
-  </form>
-</div>
-
-
-
-
-</div>
-</div>
-</center>
-  </body>
+	  						<form action="" >
+							    <h4>Title </h4>
+							    <label for="title"></label>
+							    <b><h3>{{myOMDB.Title}}</h3></b>
+							
+							    <br>
+							    <h4>Classification </h4>
+							    <label for="classification"></label>
+							    <b><h3>{{myOMDB.Genre}}</h3></b>
+							    <br>
+							    <h4>Date and Time</h4><br>
+								</br>
+								<select style="width:150px">
+									<option ng-repeat="x in myWelcome | orderBy : 'dayShowing'" >{{x.dayShowing}}, {{x.hourShowing}}</option>
+								</select>
+								<br>
+							    <h4>Number of tickets</h4><br>
+							    <input type="number" min="0" id="seatnumber" name="seatnumber" value="0"><br>
+								<h4>Number of disabled tickets</h4><br>
+							    <input type="number" min="0" id="seatnumber" name="seatDisableNumber" value="0"><br>
+							    <input type="submit" value="Book Ticket">
+	  						</form>
+						</div>
+					</div>
+				</div>
+			</center>
+		</div>
+	</body>
 </html>

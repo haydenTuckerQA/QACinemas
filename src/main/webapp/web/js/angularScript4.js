@@ -15,7 +15,7 @@ $scope.deletedata = function (id_del) {
 var url = "http://localhost:8080/QACinemas/api/movie/json/" + id_del.toString();
 $http.delete(url).then(function (response) {
 if (response.data)
-$scope.msg = "Deleted Account!";
+$scope.msg = "Movie Deleted";
 $scope.refresh();
 }, function (response) {
 $scope.msg = "Output Message : Service not Exists";
